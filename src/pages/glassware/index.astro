@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import CocktailCard from "../../components/CocktailCard.astro";
+import { getGlasswareIcon} from "../../utils/glasswareIcons";
 
 const allCocktails = await getCollection('cocktails');
 
@@ -16,20 +16,12 @@ for (const cocktail of allCocktails) {
     glassMap.set(key, (glassMap.get(key) ?? 0) + 1);
 }
 
-// Optional icons for fun
-const glassIcons: Record<string, string> = {
-    coupe: '🥂',
-    rocks: '🥃',
-    highball: '🥤',
-    martini: '🍸',
-    flute: '🍾',
-};
 
 const glasses = Array.from(glassMap.entries())
     .map(([name, count]) => ({
         name,
         displayName: name.charAt(0).toUpperCase() + name.slice(1),
-        icon: glassIcons[name] ?? '🍶',
+        icon: getGlasswareIcon(name),
         count,
     }))
     .sort((a, b) => b.count - a.count);

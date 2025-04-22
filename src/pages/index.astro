@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getSpiritIcon } from "../utils/spiritIcons";
 
 const allCocktails = await getCollection('cocktails');
 
@@ -22,20 +23,10 @@ for (const drink of allCocktails) {
 }
 
 
-// Optional emoji map to spice up the UI
-const spiritEmojis: Record<string, string> = {
-	gin: '🍸',
-	whiskey: '🥃',
-	bourbon: '🥃',
-	rum: '🍹',
-	sparkling: '🥂',
-	'non-alcoholic': '🌿',
-};
-
 const spirits = Array.from(spiritsMap.entries())
 	.map(([name, data]) => ({
 		name,
-		icon: spiritEmojis[name] ?? '🍶',
+		icon: getSpiritIcon(name),
 		count: data.count,
 	}))
 	.sort((a, b) => b.count - a.count); // Sort descending by count

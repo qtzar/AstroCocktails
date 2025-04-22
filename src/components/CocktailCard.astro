@@ -1,6 +1,7 @@
 ---
 import type {CollectionEntry} from "astro:content";
 import Rating from '@/components/Rating.astro';
+import { getMethodIcon } from '@/utils/methodIcons';
 
 export interface Props {
     cocktail: CollectionEntry<'cocktails'>;
@@ -11,9 +12,12 @@ const { cocktail } = Astro.props;
 
 <li class="bg-white/90 border border-zinc-300 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
     <a href={`/cocktails/${cocktail.id}`} class="block">
-        {cocktail.data.image && (
-                 <img src={cocktail.data.image} alt={cocktail.data.title} class="w-full h-48 object-cover" />
-        )}
+        <img
+                src={cocktail.data.image ?? '/placeholder.png'}
+                alt={cocktail.data.title}
+                class={`w-full h-48 object-cover ${cocktail.data.image ? '' : 'opacity-60 blur-[1px]'}`}
+        />
+
         <div class="p-4">
             <h2 class="text-xl font-semibold">{cocktail.data.title}</h2>
             <p class="text-sm text-zinc-600 mt-1">{cocktail.data.description}</p>
@@ -37,6 +41,17 @@ const { cocktail } = Astro.props;
                     })}
                 </ul>
         )}
+
+        {cocktail.data.method && (
+                <a
+                        href={`/method/${cocktail.data.method.toLowerCase()}`}
+                        class="inline-flex items-center gap-1 bg-zinc-100 border border-zinc-300 rounded-full px-2 py-0.5 text-xs text-zinc-600 mt-3 hover:underline"
+                >
+                    <span>{getMethodIcon(cocktail.data.method)}</span>
+                    <span class="capitalize">{cocktail.data.method}</span>
+                </a>
+        )}
+
 
 
     </a>

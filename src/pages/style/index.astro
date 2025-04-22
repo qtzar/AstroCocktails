@@ -1,23 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getStyleIcon} from "../../utils/styleIcons";
 
 const allCocktails = await getCollection('cocktails');
 
-const styleIcons: Record<string, string> = {
-    'spirit-forward': '🧊',
-    'refreshing': '🌿',
-    'tropical': '🍍',
-    'dessert': '🍰',
-    'aperitif': '🍷',
-    'digestif': '🧉',
-    'classic': '🎩',
-    'seasonal': '🍁',
-    'fruity': '🍓',
-    'bubbly': '🥂',
-    'sour': '🍋',
-    'creamy': '🥛',
-};
+
 
 
 
@@ -51,7 +39,7 @@ const styles = Array.from(styleMap.entries())
                     <li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition text-center">
                         <a href={`/style/${name}`} class="block">
                             <div class="text-4xl mb-2">
-                                {styleIcons[name] ?? '🍸'}
+                                {getStyleIcon(name)}
                             </div>
                             <h2 class="text-xl font-semibold capitalize">{displayName}</h2>
                             <p class="text-sm text-zinc-600">{count} recipe{count !== 1 ? 's' : ''}</p>
