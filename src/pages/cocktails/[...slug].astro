@@ -1,0 +1,51 @@
+---
+import {type CollectionEntry, getCollection, getEntry} from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { render } from 'astro:content';
+import type { APIContext } from 'astro';
+
+export async function getStaticPaths() {
+    const allCocktails = await getCollection('cocktails');
+
+    return allCocktails.map((post) => ({
+        params: { slug: post.id },
+        props: post,
+    }));
+}
+
+type Props = CollectionEntry<'cocktails'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+---
+
+<Layout title={post.data.title}>
+    <main class="max-w-2xl mx-auto p-6 bg-white/90 rounded-lg shadow mt-8 border border-zinc-300">
+        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
+            ← Back to index
+        </a>
+
+        <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
+        <p class="italic text-zinc-600 mb-6">{post.data.description}</p>
+
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mb-2">🧾 Ingredients</h2>
+            <ul class="list-disc pl-6 space-y-1 text-zinc-700">
+                {post.data.ingredients?.map((item) => <li>{item}</li>)}
+            </ul>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mb-2">🔧 Instructions</h2>
+            <Content />
+        </div>
+
+        {post.data.notes && (
+                <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                    <h3 class="font-semibold text-yellow-700">Notes</h3>
+                    <p class="text-sm text-yellow-800">{post.data.notes}</p>
+                </div>
+        )}
+    </main>
+</Layout>

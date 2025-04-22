@@ -2,11 +2,16 @@ import { astroZodCollectionsToJsonSchemas } from 'astro-zod-to-json-schema';
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
-const records = defineCollection({
+const cocktails = defineCollection({
 	loader: glob({ base: './docs', pattern: '**/*.{md,mdx}' }),
 	schema: z
 		.object({
 			title: z.string(),
+			description: z.string(),
+			spirits: z.array(z.string()),
+			ingredients: z.array(z.string()),
+			notes: z.string().optional(),
+
 			image: z.string().optional(),
 			created: z.string().date().optional(),
 			lastUpdate: z.string().date().optional(),
@@ -14,6 +19,6 @@ const records = defineCollection({
 		.passthrough()
 });
 
-export const collections = { records };
+export const collections = { cocktails };
 
 await astroZodCollectionsToJsonSchemas(collections);

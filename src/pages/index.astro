@@ -1,16 +1,71 @@
 ---
-import '@/styles/global.css'
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+
+const allCocktails = await getCollection('cocktails');
+
+const spiritsMap = new Map<string, { count: number }>();
+
+for (const drink of allCocktails) {
+	const listedSpirits = Array.isArray(drink.data.spirits)
+		? drink.data.spirits
+		: drink.data.spirit
+			? [drink.data.spirit]
+			: [];
+
+	for (const spirit of listedSpirits) {
+		const key = spirit.toLowerCase();
+		spiritsMap.set(key, {
+			count: (spiritsMap.get(key)?.count ?? 0) + 1,
+		});
+	}
+}
+
+
+	// Optional emoji map to spice up the UI
+	const spiritEmojis: Record<string, string> = {
+		gin: '🍸',
+		whiskey: '🥃',
+		bourbon: '🥃',
+		rum: '🍹',
+		sparkling: '🥂',
+		'non-alcoholic': '🌿',
+	};
+
+		const spirits = Array.from(spiritsMap.entries()).map(([name, data]) => ({
+			name,
+			icon: spiritEmojis[name] ?? '🍶',
+			count: data.count,
+		}));
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+		<Layout title="Cocktail Index">
+			<main class="bg-[url('/parchment-texture.jpg')] bg-repeat min-h-screen p-8 text-zinc-800 font-serif">
+				<section class="max-w-3xl mx-auto">
+					<h1 class="text-4xl font-bold mb-6 text-center border-b-4 border-dotted border-zinc-400 pb-2">
+						📖 The Cocktail Index
+					</h1>
+
+					<p class="mb-8 text-center italic text-zinc-600">
+						“A notebook of all things shaken, stirred, built and brilliant.”
+					</p>
+
+					{spirits.length === 0 ? (
+						<p class="text-center text-zinc-500 italic">No cocktails yet — time to get mixing!</p>
+					) : (
+						<ul class="grid sm:grid-cols-2 gap-6">
+							{spirits.map(({ name, icon, count }) => (
+								<li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+									<a href={`/${name}`} class="block text-center">
+										<div class="text-5xl mb-2">{icon}</div>
+										<h2 class="text-xl font-semibold capitalize">{name}</h2>
+										<p class="text-sm text-zinc-600">{count} recipe{count > 1 ? 's' : ''}</p>
+									</a>
+								</li>
+							))}
+						</ul>
+					)}
+				</section>
+			</main>
+		</Layout>

@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import type { APIContext } from 'astro';
+
+export async function getStaticPaths() {
+const allCocktails = await getCollection('cocktails');
+
+    const categories = Array.from(
+        new Set(
+            allCocktails
+                .flatMap(c => Array.isArray(c.data.spirits) ? c.data.spirits : c.data.spirit ? [c.data.spirit] : [])
+                .map(s => s.toLowerCase())
+        )
+    );
+
+return categories.map((category) => ({
+params: { category },
+}));
+}
+
+const { params } = Astro as APIContext;
+const category = params.category;
+const allCocktails = await getCollection('cocktails');
+
+const cocktails = allCocktails.filter(c =>
+    Array.isArray(c.data.spirits)
+        ? c.data.spirits.map(s => s.toLowerCase()).includes(category)
+        : c.data.spirit?.toLowerCase() === category
+);
+
+
+---
+
+<Layout title={category.charAt(0).toUpperCase() + category.slice(1)}>
+    <main class="max-w-4xl mx-auto p-8">
+        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
+            ← Back to index
+        </a>
+        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2">
+            🍸 {category.charAt(0).toUpperCase() + category.slice(1)} Cocktails
+        </h1>
+
+        {cocktails.length === 0 ? (
+        <p class="italic text-zinc-600">No cocktails found for this category. Might be time to invent one!</p>
+        ) : (
+        <ul class="space-y-6">
+            {cocktails.map((entry) => (
+            <li class="bg-white/90 border border-zinc-300 rounded-lg p-6 shadow hover:shadow-lg transition">
+                <a href={`/cocktails/${entry.id}`} class="block">
+                    <h2 class="text-xl font-semibold">{entry.data.title}</h2>
+                    <p class="text-sm text-zinc-600 mt-1">{entry.data.description}</p>
+                    <div class="text-xs mt-2 text-zinc-500 italic">Ingredients: {entry.data.ingredients?.join(', ')}</div>
+                </a>
+            </li>
+            ))}
+        </ul>
+        )}
+    </main>
+</Layout>

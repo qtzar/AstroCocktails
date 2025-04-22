@@ -4,6 +4,24 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "string"
+    },
+    "spirits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
     "image": {
       "type": "string"
     },
@@ -17,7 +35,10 @@
     }
   },
   "required": [
-    "title"
+    "title",
+    "description",
+    "spirits",
+    "ingredients"
   ],
   "additionalProperties": true,
   "$schema": "http://json-schema.org/draft-07/schema#"
