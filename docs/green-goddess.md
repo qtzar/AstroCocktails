@@ -15,6 +15,7 @@ method: Shaken
 rating: 2.5
 styles:
   - Refreshing
+glassware: coupe
 ---
 
 Muddle the kiwi and then add all the ingredients with ice to a shaker.

@@ -14,6 +14,7 @@ rating: 4
 styles:
   - Minty
   - Fizzy
+glassware: hurricane
 ---
 
 Muddle mint with syrup and lime in a glass.  

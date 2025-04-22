@@ -13,6 +13,7 @@ styles:
   - Spirit Forward
   - Aperitif
 method: Stirred
+glassware: Rocks
 ---
 
 Stir all ingredients with ice until well chilled.  

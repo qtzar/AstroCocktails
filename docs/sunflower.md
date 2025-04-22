@@ -16,6 +16,7 @@ rating: 3.5
 styles:
   - Refreshing
 method: Shaken
+glassware: Coupe
 ---
 
 Rinse chilled coupe with Absinthe.

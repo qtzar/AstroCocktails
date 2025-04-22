@@ -12,6 +12,7 @@ method: Shaken
 rating: 4
 styles:
   - Tart
+glassware: coupe
 ---
 
 Shake all ingredients with ice.  

@@ -13,6 +13,7 @@ styles:
   - Egg White
 rating: 4
 method: Dry Shake
+glassware: Rocks
 ---
 
 Dry shake all ingredients (with egg white if using), then shake again with ice.  

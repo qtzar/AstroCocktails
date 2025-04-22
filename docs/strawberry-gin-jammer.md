@@ -16,6 +16,7 @@ styles:
   - Refreshing
   - Sweet
 method: Shaken
+glassware: Coupe
 ---
 
 Shake well over ice and double strain in to glass.

@@ -14,6 +14,7 @@ method: Shaken
 rating: 3.5
 styles:
   - Refreshing
+glassware: collins
 ---
 
 Add the Gin, orange liqueur and lemon juice to shaker, shake over ice and dirty dump in to glass. 

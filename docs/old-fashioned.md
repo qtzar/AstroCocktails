@@ -12,6 +12,7 @@ styles:
   - Spirit Forward
 method: Stirred
 rating: 4
+glassware: Rocks
 ---
 
 Muddle sugar, bitters, and water in a rocks glass.  

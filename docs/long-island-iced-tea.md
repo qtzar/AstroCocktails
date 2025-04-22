@@ -21,6 +21,7 @@ rating: 4
 styles:
   - Spirit Forward
   - Strong
+glassware: Highball
 ---
 
 Shake everything except cola with ice.  

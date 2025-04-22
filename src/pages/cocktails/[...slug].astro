@@ -60,6 +60,17 @@ try {
 
         <CocktailLabels cocktail={cocktail} />
 
+        {cocktail.data.source && (
+                <p class="text-sm italic text-zinc-600 mb-4">
+                    Source: {
+                    cocktail.data.source.startsWith('http')
+                        ? <a href={cocktail.data.source} target="_blank" rel="noopener noreferrer" class="underline">{data.source}</a>
+                        : cocktail.data.source
+                }
+                </p>
+        )}
+
+
         <div class="mb-6">
             <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mt-6 mb-2">🧾 Ingredients</h2>
             <ul class="list-disc pl-6 space-y-1 text-zinc-700">

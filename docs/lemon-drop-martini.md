@@ -16,7 +16,7 @@ styles:
   - Sweet
 method: Shaken
 rating: 5
-
+glassware: Martini
 ---
 
 Put a sugar rim on martini glass.

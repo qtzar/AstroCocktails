@@ -13,12 +13,12 @@ ingredients:
   - '3oz pineapple juice'
   - '1/4oz Grenadine'
   - 'Cherry'
-glassware: 'Rocks'
 image: /pics/tiki-tiki-tiki-room.jpg
 styles:
   - Tropical
 rating: 4
 method: Shaken
+glassware : Tiki
 ---
 
 
