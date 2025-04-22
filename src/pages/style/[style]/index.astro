@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Rating from '@/components/Rating.astro';
+import type { APIContext } from 'astro';
+
+export async function getStaticPaths() {
+    const allCocktails = await getCollection('cocktails');
+
+    const uniqueStyles = new Set<string>();
+
+    for (const cocktail of allCocktails) {
+        for (const style of cocktail.data.styles ?? []) {
+            uniqueStyles.add(style.toLowerCase());
+        }
+    }
+
+    return Array.from(uniqueStyles).map((style) => ({
+        params: { style },
+    }));
+}
+
+const { params } = Astro as APIContext;
+const style = params.style;
+
+const allCocktails = await getCollection('cocktails');
+
+const cocktails = allCocktails.filter(
+    (c) =>
+        Array.isArray(c.data.styles) &&
+        c.data.styles.map((s) => s.toLowerCase()).includes(style)
+);
+---
+
+<Layout title={`${style.charAt(0).toUpperCase() + style.slice(1)} Cocktails`}>
+    <main class="max-w-4xl mx-auto p-8">
+        <a href="/style" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
+            ← Back to Style Index
+        </a>
+
+        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
+            {style} Cocktails
+        </h1>
+
+        {cocktails.length === 0 ? (
+                <p class="italic text-zinc-600">No cocktails found for this style.</p>
+        ) : (
+                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+                    {cocktails.map((entry) => (
+                            <li class="bg-white/90 border border-zinc-300 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                                <a href={`/cocktails/${entry.slug}`} class="block">
+                                    {entry.data.image && (
+                                            <img src={entry.data.image} alt={entry.data.title} class="w-full h-48 object-cover" />
+                                    )}
+                                    <div class="p-4">
+                                        <h2 class="text-xl font-semibold">{entry.data.title}</h2>
+                                        <p class="text-sm text-zinc-600 mt-1">{entry.data.description}</p>
+                                        <Rating rating={entry.data.rating} />
+                                        {entry.data.styles?.length > 0 && (
+                                                <ul class="flex flex-wrap gap-1 mt-3 text-xs">
+                                                    {entry.data.styles.map((s) => (
+                                                            <li class="bg-zinc-100 border border-zinc-300 rounded-full px-2 py-0.5 text-zinc-600">{s}</li>
+                                                    ))}
+                                                </ul>
+                                        )}
+                                    </div>
+                                </a>
+                            </li>
+                    ))}
+                </ul>
+        )}
+    </main>
+</Layout>

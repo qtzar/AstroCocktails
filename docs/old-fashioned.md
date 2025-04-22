@@ -8,6 +8,8 @@ ingredients:
   - 1 Sugar Cube (or 0.25 oz Simple Syrup)
   - 2 Dashes Angostura Bitters
   - Splash of Water
+styles:
+  - Spirit Forward
 ---
 
 Muddle sugar, bitters, and water in a rocks glass.  

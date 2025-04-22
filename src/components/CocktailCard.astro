@@ -19,5 +19,16 @@ const { cocktail } = Astro.props;
             <p class="text-sm text-zinc-600 mt-1">{cocktail.data.description}</p>
             <Rating rating={cocktail.data.rating} />
         </div>
+
+        {cocktail.data.styles?.length > 0 && (
+                <ul class="flex flex-wrap gap-1 mt-3 text-xs">
+                    {cocktail.data.styles.map((style:string) => (
+                            <li class="bg-zinc-100 border border-zinc-300 rounded-full px-2 py-0.5 text-zinc-600">
+                                {style}
+                            </li>
+                    ))}
+                </ul>
+        )}
+
     </a>
 </li>

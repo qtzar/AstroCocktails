@@ -8,6 +8,9 @@ ingredients:
   - 1 oz Gin
   - 1 oz Campari
   - 1 oz Sweet Vermouth
+rating: 4.5
+styles:
+  - Spirit Forward
 ---
 
 Stir all ingredients with ice until well chilled.  

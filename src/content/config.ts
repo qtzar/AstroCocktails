@@ -12,10 +12,8 @@ const cocktails = defineCollection({
 			ingredients: z.array(z.string()),
 			notes: z.string().optional(),
 			rating: z.number().optional(),
-
+			styles: z.array(z.string()).optional(),
 			image: z.string().optional(),
-			created: z.string().date().optional(),
-			lastUpdate: z.string().date().optional(),
 		})
 		.passthrough()
 });

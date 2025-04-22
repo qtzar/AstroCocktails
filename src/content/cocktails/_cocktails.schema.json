@@ -25,16 +25,14 @@
     "rating": {
       "type": "number"
     },
+    "styles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "image": {
       "type": "string"
-    },
-    "created": {
-      "type": "string",
-      "format": "date"
-    },
-    "lastUpdate": {
-      "type": "string",
-      "format": "date"
     }
   },
   "required": [

@@ -13,7 +13,9 @@ image: /pics/purple-rain.jpg
 notes: >-
   Make your own pea flower infused gib by adding pea flower petals
   to your gin for about an hour or till the color reaches a deep purple.
-
+rating: 3.5
+styles:
+  - Refreshing
 
 created: '2025-04-21'
 lastUpdate: '2025-04-21'

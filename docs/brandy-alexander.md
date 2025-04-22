@@ -11,6 +11,9 @@ ingredients:
 image: /pics/brandy-alexander.jpg
 glassware: martini
 rating: 5
+styles:
+  - Dessert
+  - Creamy
 ---
 
 Shake over ice and double strain in to a chilled martini glass.

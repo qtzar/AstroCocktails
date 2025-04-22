@@ -12,6 +12,8 @@ ingredients:
   - 31/2 Oz Lemon Juice
 image: /pics/lemon-drop-martini.jpg
 notes: This is a copycat recipe of the Lemon Drop Martini from Mortons Steakhouse.
+styles:
+  - Sweet
 ---
 
 Put a sugar rim on martini glass.

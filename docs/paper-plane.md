@@ -13,6 +13,8 @@ ingredients:
 image: /pics/paper-plane.jpg
 rating: 5
 glassware: coupe
+styles:
+  - Spirit Forward
 ---
 
 Shake over ice and double strain in to glass.

@@ -12,6 +12,9 @@ ingredients:
   - 3/4 oz Elderflower Liqueur
   - 3/4 oz Lemon Juice
 image: /pics/sunflower.jpg
+rating: 3.5
+styles:
+  - Refreshing
 ---
 
 Rinse chilled coupe with Absinthe.

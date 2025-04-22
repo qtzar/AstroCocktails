@@ -8,6 +8,9 @@ ingredients:
   - 0.75 oz Lemon Juice
   - 0.5 oz Simple Syrup
   - (Optional) Egg White
+styles:
+  - Spirit Forward
+rating: 4
 ---
 
 Dry shake all ingredients (with egg white if using), then shake again with ice.  

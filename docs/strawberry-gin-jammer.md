@@ -11,6 +11,10 @@ ingredients:
   - 1/8 oz Hibiscus Syrup
   - 1 tbs Strawberry Jam
 image: /pics/strawberry-gin-jammer.jpg
+rating: 3.5
+styles:
+  - Refreshing
+  - Sweet
 ---
 
 Shake well over ice and double strain in to glass.

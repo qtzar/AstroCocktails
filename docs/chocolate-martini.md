@@ -12,6 +12,8 @@ ingredients:
 image: /pics/chocolate-martini.jpg
 rating: 4.5
 glassware: martini
+styles:
+  - Creamy
 ---
 
 Rim glass edge in chocolate syrup and decorate inside of glass.
