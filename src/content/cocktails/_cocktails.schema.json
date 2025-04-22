@@ -22,6 +22,9 @@
     "rating": {
       "type": "number"
     },
+    "glassware": {
+      "type": "string"
+    },
     "styles": {
       "type": "array",
       "items": {
@@ -29,6 +32,9 @@
       }
     },
     "image": {
+      "type": "string"
+    },
+    "source": {
       "type": "string"
     },
     "notes": {
@@ -41,6 +47,7 @@
     "spirits",
     "ingredients",
     "rating",
+    "glassware",
     "styles"
   ],
   "additionalProperties": true,

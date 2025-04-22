@@ -4,6 +4,8 @@ const glasswareIcons: Record<string, string> = {
     highball: '🥤',
     martini: '🍸',
     flute: '🍾',
+    tiki: '🍹',
+    hurricane: '🌪️',
 };
 
 export function getGlasswareIcon(glassware: string | undefined): string {

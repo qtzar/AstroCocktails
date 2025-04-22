@@ -1,13 +1,16 @@
 ---
 import type {CollectionEntry} from "astro:content";
 import Rating from '@/components/Rating.astro';
-import { getMethodIcon } from '@/utils/methodIcons';
+import {getMethodIcon} from '@/utils/methodIcons';
+import {getStyleIcon} from "../utils/styleIcons";
+import {getGlasswareIcon} from "../utils/glasswareIcons";
+import CocktailLabels from "./CocktailLabels.astro";
 
 export interface Props {
     cocktail: CollectionEntry<'cocktails'>;
 }
 
-const { cocktail } = Astro.props;
+const {cocktail} = Astro.props;
 ---
 
 <li class="bg-white/90 border border-zinc-300 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
@@ -20,39 +23,10 @@ const { cocktail } = Astro.props;
 
         <div class="p-4">
             <h2 class="text-xl font-semibold">{cocktail.data.title}</h2>
+            <Rating rating={cocktail.data.rating}/>
             <p class="text-sm text-zinc-600 mt-1">{cocktail.data.description}</p>
-            <Rating rating={cocktail.data.rating} />
         </div>
 
-        {cocktail.data.styles?.length > 0 && (
-                <ul class="flex flex-wrap gap-1 mt-3 text-xs">
-                    {cocktail.data.styles.map((style) => {
-                        const slug = style.toLowerCase();
-                        return (
-                                <li>
-                                    <a
-                                            href={`/style/${slug}`}
-                                            class="bg-zinc-100 border border-zinc-300 rounded-full px-2 py-0.5 text-zinc-600 hover:underline"
-                                    >
-                                        {style}
-                                    </a>
-                                </li>
-                        );
-                    })}
-                </ul>
-        )}
-
-        {cocktail.data.method && (
-                <a
-                        href={`/method/${cocktail.data.method.toLowerCase()}`}
-                        class="inline-flex items-center gap-1 bg-zinc-100 border border-zinc-300 rounded-full px-2 py-0.5 text-xs text-zinc-600 mt-3 hover:underline"
-                >
-                    <span>{getMethodIcon(cocktail.data.method)}</span>
-                    <span class="capitalize">{cocktail.data.method}</span>
-                </a>
-        )}
-
-
-
+        <CocktailLabels cocktail={cocktail} />
     </a>
 </li>

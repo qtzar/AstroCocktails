@@ -5,6 +5,10 @@ import {type CollectionEntry, getCollection} from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
 import Rating from "../../components/Rating.astro";
+import {getStyleIcon} from "../../utils/styleIcons";
+import {getGlasswareIcon} from "../../utils/glasswareIcons";
+import {getMethodIcon} from "../../utils/methodIcons";
+import CocktailLabels from "../../components/CocktailLabels.astro";
 
 export async function getStaticPaths() {
     const allCocktails = await getCollection('cocktails');
@@ -17,10 +21,10 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<'cocktails'>;
 
-const post = Astro.props;
-const { Content } = await render(post);
+const cocktail = Astro.props;
+const { Content } = await render(cocktail);
 
-const filePath = path.resolve(`docs/${post.id}.md`);
+const filePath = path.resolve(`docs/${cocktail.id}.md`);
 let createdAt: Date | null = null;
 let updatedAt: Date | null = null;
 
@@ -29,36 +33,37 @@ try {
     createdAt = stats.birthtime;
     updatedAt = stats.mtime;
 } catch (e) {
-    console.warn(`Unable to read file info for: ${post.id}`, e);
+    console.warn(`Unable to read file info for: ${cocktail.id}`, e);
 }
 
 
 ---
 
-<Layout title={post.data.title}>
+<Layout title={cocktail.data.title}>
     <main class="max-w-5xl mx-auto p-6 bg-white/90 rounded-lg shadow mt-8 border border-zinc-300">
         <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
             ← Back to index
         </a>
 
-        <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
-        <p class="italic text-zinc-600">{post.data.description}</p>
-        <Rating rating={post.data.rating} showNumber={true} />
+        <h1 class="text-3xl font-bold mb-2">{cocktail.data.title}</h1>
+        <p class="italic text-zinc-600">{cocktail.data.description}</p>
+        <Rating rating={cocktail.data.rating} showNumber={true} />
 
 
-        {post.data.image && (
+        {cocktail.data.image && (
                 <img
-                        src={post.data.image}
-                        alt={post.data.title}
+                        src={cocktail.data.image}
+                        alt={cocktail.data.title}
                         class="w-full max-h-100 object-contain rounded-lg mt-6 shadow-md"
                 />
         )}
 
+        <CocktailLabels cocktail={cocktail} />
 
         <div class="mb-6">
             <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mt-6 mb-2">🧾 Ingredients</h2>
             <ul class="list-disc pl-6 space-y-1 text-zinc-700">
-                {post.data.ingredients?.map((item) => <li>{item}</li>)}
+                {cocktail.data.ingredients?.map((item) => <li>{item}</li>)}
             </ul>
         </div>
 
@@ -67,12 +72,14 @@ try {
             <Content />
         </div>
 
-        {post.data.notes && (
+        {cocktail.data.notes && (
                 <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
                     <h3 class="font-semibold text-yellow-700">Notes</h3>
-                    <p class="text-sm text-yellow-800">{post.data.notes}</p>
+                    <p class="text-sm text-yellow-800">{cocktail.data.notes}</p>
                 </div>
         )}
+
+
 
         {createdAt && (
                 <p class="text-xs text-zinc-500 mt-4 italic">
