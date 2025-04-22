@@ -22,27 +22,30 @@ for (const drink of allCocktails) {
 }
 
 
-	// Optional emoji map to spice up the UI
-	const spiritEmojis: Record<string, string> = {
-		gin: '🍸',
-		whiskey: '🥃',
-		bourbon: '🥃',
-		rum: '🍹',
-		sparkling: '🥂',
-		'non-alcoholic': '🌿',
-	};
+// Optional emoji map to spice up the UI
+const spiritEmojis: Record<string, string> = {
+	gin: '🍸',
+	whiskey: '🥃',
+	bourbon: '🥃',
+	rum: '🍹',
+	sparkling: '🥂',
+	'non-alcoholic': '🌿',
+};
 
-		const spirits = Array.from(spiritsMap.entries()).map(([name, data]) => ({
-			name,
-			icon: spiritEmojis[name] ?? '🍶',
-			count: data.count,
-		}));
+const spirits = Array.from(spiritsMap.entries())
+	.map(([name, data]) => ({
+		name,
+		icon: spiritEmojis[name] ?? '🍶',
+		count: data.count,
+	}))
+	.sort((a, b) => b.count - a.count); // Sort descending by count
+
 
 ---
 
 		<Layout title="Cocktail Index">
 			<main class="bg-[url('/parchment-texture.jpg')] bg-repeat min-h-screen p-8 text-zinc-800 font-serif">
-				<section class="max-w-3xl mx-auto">
+				<section class="max-w-6xl mx-auto">
 					<h1 class="text-4xl font-bold mb-6 text-center border-b-4 border-dotted border-zinc-400 pb-2">
 						📖 The Cocktail Index
 					</h1>
@@ -54,8 +57,9 @@ for (const drink of allCocktails) {
 					{spirits.length === 0 ? (
 						<p class="text-center text-zinc-500 italic">No cocktails yet — time to get mixing!</p>
 					) : (
-						<ul class="grid sm:grid-cols-2 gap-6">
-							{spirits.map(({ name, icon, count }) => (
+						<ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+
+						{spirits.map(({ name, icon, count }) => (
 								<li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition">
 									<a href={`/${name}`} class="block text-center">
 										<div class="text-5xl mb-2">{icon}</div>

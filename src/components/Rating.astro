@@ -1,0 +1,23 @@
+---
+export interface Props {
+    rating?: number;
+    showNumber?: boolean;
+}
+
+const { rating, showNumber = true } = Astro.props;
+
+if (typeof rating !== 'number') {
+    return null;
+}
+
+const stars = Array.from({ length: 5 }, (_, i) => {
+    const full = i + 1 <= Math.floor(rating);
+    const half = i + 0.5 === rating;
+    return full ? '★' : half ? '☆' : '✩';
+});
+---
+
+<div class="text-yellow-500 text-sm flex items-center gap-1" aria-label={`Rated ${rating} stars`}>
+    <span class="tracking-tight">{stars.join('')}</span>
+    {showNumber && <span class="text-zinc-500 text-xs">({rating})</span>}
+</div>

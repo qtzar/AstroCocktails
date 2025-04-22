@@ -12,7 +12,7 @@ ingredients:
   - 1oz egg whites
 glassware: 'Rocks'
 image: /pics/berry-whiskey-sour.jpg
-
+rating: 4
 created: '2025-04-21'
 lastUpdate: '2025-04-21'
 ---

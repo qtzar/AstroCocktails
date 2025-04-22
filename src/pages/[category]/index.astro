@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import type { APIContext } from 'astro';
+import Rating from "../../components/Rating.astro";
 
 export async function getStaticPaths() {
 const allCocktails = await getCollection('cocktails');
@@ -55,6 +56,7 @@ const cocktails = allCocktails.filter(c =>
                                         <h2 class="text-xl font-semibold">{entry.data.title}</h2>
                                         <p class="text-sm text-zinc-600 mt-1">{entry.data.description}</p>
                                         <div class="text-xs mt-2 text-zinc-500 italic">Ingredients: {entry.data.ingredients?.join(', ')}</div>
+                                        <Rating rating={entry.data.rating} />
                                     </div>
                                 </a>
                             </li>

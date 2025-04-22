@@ -3,6 +3,7 @@ import {type CollectionEntry, getCollection, getEntry} from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
 import type { APIContext } from 'astro';
+import Rating from "../../components/Rating.astro";
 
 export async function getStaticPaths() {
     const allCocktails = await getCollection('cocktails');
@@ -28,13 +29,14 @@ const { Content } = await render(post);
 
 
         <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
-        <p class="italic text-zinc-600 mb-6">{post.data.description}</p>
+        <p class="italic text-zinc-600">{post.data.description}</p>
+        <Rating rating={post.data.rating} showNumber={true} />
 
         {post.data.image && (
                 <img
                         src={post.data.image}
                         alt={post.data.title}
-                        class="w-full max-h-96 object-cover rounded-lg mb-6 shadow-md"
+                        class="w-full max-h-96 object-cover rounded-lg mt-6 mb-6 shadow-md"
                 />
         )}
 

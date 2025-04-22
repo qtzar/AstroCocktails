@@ -22,6 +22,9 @@
     "notes": {
       "type": "string"
     },
+    "rating": {
+      "type": "number"
+    },
     "image": {
       "type": "string"
     },
