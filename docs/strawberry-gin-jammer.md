@@ -15,6 +15,7 @@ rating: 3.5
 styles:
   - Refreshing
   - Sweet
+method: Shaken
 ---
 
 Shake well over ice and double strain in to glass.

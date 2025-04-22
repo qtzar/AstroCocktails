@@ -10,9 +10,7 @@ ingredients:
   - '3-4 mint leaves'
 glassware: 'Rocks'
 image: /pics/maple-bourbon-smash.jpg
-
-created: '2025-04-21'
-lastUpdate: '2025-04-21'
+method: Shaken
 ---
 
 ## Ingredients

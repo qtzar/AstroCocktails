@@ -11,6 +11,7 @@ ingredients:
 styles:
   - Spirit Forward
 rating: 4
+method: Dry Shake
 ---
 
 Dry shake all ingredients (with egg white if using), then shake again with ice.  

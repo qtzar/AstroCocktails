@@ -15,6 +15,7 @@ image: /pics/sunflower.jpg
 rating: 3.5
 styles:
   - Refreshing
+method: Shaken
 ---
 
 Rinse chilled coupe with Absinthe.

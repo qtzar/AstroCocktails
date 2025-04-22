@@ -16,6 +16,7 @@ ingredients:
   - 0.75 oz Lemon Juice
   - 0.5 oz Simple Syrup
   - Splash of Cola
+method: Shaken
 ---
 
 Shake everything except cola with ice.  

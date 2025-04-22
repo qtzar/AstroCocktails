@@ -7,44 +7,36 @@ import CocktailCard from "../../../components/CocktailCard.astro";
 
 export async function getStaticPaths() {
     const allCocktails = await getCollection('cocktails');
+    const uniqueMethods = Array.from(
+        new Set(allCocktails.map(c => c.data.method?.toLowerCase()).filter(Boolean))
+    );
 
-    const uniqueStyles = new Set<string>();
-
-    for (const cocktail of allCocktails) {
-        for (const style of cocktail.data.styles ?? []) {
-            uniqueStyles.add(style.toLowerCase());
-        }
-    }
-
-    return Array.from(uniqueStyles).map((style) => ({
-        params: { style },
+    return uniqueMethods.map((method) => ({
+        params: { method },
     }));
 }
 
 const { params } = Astro as APIContext;
-const style = params.style;
+const method = params.method;
 
 const allCocktails = await getCollection('cocktails');
-
 const cocktails = allCocktails.filter(
-    (c) =>
-        Array.isArray(c.data.styles) &&
-        c.data.styles.map((s) => s.toLowerCase()).includes(style)
+    (c) => c.data.method?.toLowerCase() === method
 );
 ---
 
-<Layout title={`${style.charAt(0).toUpperCase() + style.slice(1)} Cocktails`}>
+<Layout title={`${method.charAt(0).toUpperCase() + method.slice(1)} Cocktails`}>
     <main class="max-w-4xl mx-auto p-8">
-        <a href="/style" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
-            ← Back to Style Index
+        <a href="/method" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
+            ← Back to Method Index
         </a>
 
         <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
-            {style} Cocktails
+            {method} Cocktails
         </h1>
 
         {cocktails.length === 0 ? (
-                <p class="italic text-zinc-600">No cocktails found for this style.</p>
+                <p class="italic text-zinc-600">No cocktails found for this method.</p>
         ) : (
                 <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
                     {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}

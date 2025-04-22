@@ -9,6 +9,7 @@ ingredients:
   - 0.75 oz Simple Syrup
 glassware: hurricane
 rating: 3.5
+method: Shaken
 ---
 
 Shake all ingredients with ice.  

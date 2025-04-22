@@ -10,6 +10,7 @@ ingredients:
   - Splash of Water
 styles:
   - Spirit Forward
+method: Stirred
 ---
 
 Muddle sugar, bitters, and water in a rocks glass.  

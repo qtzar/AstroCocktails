@@ -11,6 +11,7 @@ ingredients:
 rating: 4.5
 styles:
   - Spirit Forward
+method: Stirred
 ---
 
 Stir all ingredients with ice until well chilled.  

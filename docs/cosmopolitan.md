@@ -11,6 +11,7 @@ ingredients:
   - 0.5 oz Lime Juice
 glassware: martini
 rating: 3
+method: Shaken
 ---
 
 Shake all ingredients with ice.  

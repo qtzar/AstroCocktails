@@ -14,6 +14,7 @@ rating: 4.5
 glassware: martini
 styles:
   - Creamy
+method: Shaken
 ---
 
 Rim glass edge in chocolate syrup and decorate inside of glass.

@@ -11,6 +11,7 @@ ingredients:
   - 1/2 oz lime juice
   - 1 oz Simple Syrup
 image: /pics/green-goddess.jpg
+method: Shaken
 ---
 
 Muddle the kiwi and then add all the ingredients with ice to a shaker.

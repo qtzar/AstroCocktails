@@ -9,6 +9,7 @@ ingredients:
   - 0.75 oz Simple Syrup
   - 6-8 Mint Leaves
   - Soda Water
+method: Built
 ---
 
 Muddle mint with syrup and lime in a glass.  

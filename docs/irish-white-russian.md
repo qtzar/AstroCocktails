@@ -16,6 +16,7 @@ styles:
 
 created: '2025-04-21'
 lastUpdate: '2025-04-21'
+method: Layered
 ---
 
 Add whiskey and kahlua to glass and stir, add ice and layer the cream on top.

@@ -16,9 +16,7 @@ notes: >-
 rating: 3.5
 styles:
   - Refreshing
-
-created: '2025-04-21'
-lastUpdate: '2025-04-21'
+method: Dry Shake
 ---
 
 Dry shake for 45 seconds. Wet shake for 15. 

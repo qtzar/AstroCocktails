@@ -8,6 +8,7 @@ ingredients:
   - 2 oz Tequila
   - 1 oz Lime Juice
   - 0.75 oz Cointreau or Triple Sec
+method: Shaken
 ---
 
 Shake all ingredients with ice.  

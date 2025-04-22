@@ -10,6 +10,7 @@ ingredients:
   - 3/4 oz Lemon Juice
   - Club Soda
 image: /pics/gin-daisy.jpg
+method: Shaken
 ---
 
 Add the Gin, orange liqueur and lemon juice to shaker, shake over ice and dirty dump in to glass. 

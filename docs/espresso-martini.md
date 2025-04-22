@@ -10,6 +10,7 @@ ingredients:
   - 0.25 oz Simple Syrup
 glassware: martini
 rating: 4.5
+method: Shaken
 ---
 
 Shake hard with ice.  

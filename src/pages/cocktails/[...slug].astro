@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import {type CollectionEntry, getCollection} from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
@@ -18,30 +20,43 @@ type Props = CollectionEntry<'cocktails'>;
 const post = Astro.props;
 const { Content } = await render(post);
 
+const filePath = path.resolve(`docs/${post.id}.md`);
+let createdAt: Date | null = null;
+let updatedAt: Date | null = null;
+
+try {
+    const stats = fs.statSync(filePath);
+    createdAt = stats.birthtime;
+    updatedAt = stats.mtime;
+} catch (e) {
+    console.warn(`Unable to read file info for: ${post.id}`, e);
+}
+
+
 ---
 
 <Layout title={post.data.title}>
-    <main class="max-w-2xl mx-auto p-6 bg-white/90 rounded-lg shadow mt-8 border border-zinc-300">
+    <main class="max-w-5xl mx-auto p-6 bg-white/90 rounded-lg shadow mt-8 border border-zinc-300">
         <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
             ← Back to index
         </a>
-
 
         <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
         <p class="italic text-zinc-600">{post.data.description}</p>
         <Rating rating={post.data.rating} showNumber={true} />
 
+
         {post.data.image && (
                 <img
                         src={post.data.image}
                         alt={post.data.title}
-                        class="w-full max-h-96 object-cover rounded-lg mt-6 mb-6 shadow-md"
+                        class="w-full max-h-100 object-contain rounded-lg mt-6 shadow-md"
                 />
         )}
 
 
         <div class="mb-6">
-            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mb-2">🧾 Ingredients</h2>
+            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mt-6 mb-2">🧾 Ingredients</h2>
             <ul class="list-disc pl-6 space-y-1 text-zinc-700">
                 {post.data.ingredients?.map((item) => <li>{item}</li>)}
             </ul>
@@ -58,5 +73,19 @@ const { Content } = await render(post);
                     <p class="text-sm text-yellow-800">{post.data.notes}</p>
                 </div>
         )}
+
+        {createdAt && (
+                <p class="text-xs text-zinc-500 mt-4 italic">
+                    Created: {createdAt.toLocaleDateString()}
+                </p>
+        )}
+
+        {updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
+                <p class="text-xs text-zinc-500 italic">
+                    Last updated: {updatedAt.toLocaleDateString()}
+                </p>
+        )}
+
+
     </main>
 </Layout>

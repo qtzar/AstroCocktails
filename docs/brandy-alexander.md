@@ -14,6 +14,7 @@ rating: 5
 styles:
   - Dessert
   - Creamy
+method: Shaken
 ---
 
 Shake over ice and double strain in to a chilled martini glass.

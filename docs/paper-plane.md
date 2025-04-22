@@ -15,6 +15,7 @@ rating: 5
 glassware: coupe
 styles:
   - Spirit Forward
+method: Shaken
 ---
 
 Shake over ice and double strain in to glass.

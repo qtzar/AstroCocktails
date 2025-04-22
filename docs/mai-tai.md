@@ -10,5 +10,6 @@ ingredients:
   - 0.5 oz Orange Curaçao
   - 0.25 oz Orgeat
   - 0.75 oz Lime Juice
+method: Shaken
 ---
 Shake all ingredients with ice. Strain into a rocks glass filled with crushed ice. Garnish with mint and lime.
