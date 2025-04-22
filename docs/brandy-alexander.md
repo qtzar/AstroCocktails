@@ -9,6 +9,8 @@ ingredients:
   - 2 oz Creme De Cacao (Dark)
   - 2 oz Heavy Cream
 image: /pics/brandy-alexander.jpg
+glassware: martini
+rating: 5
 ---
 
 Shake over ice and double strain in to a chilled martini glass.

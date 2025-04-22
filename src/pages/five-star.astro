@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import CocktailCard from "../components/CocktailCard.astro";
+
+const allCocktails = await getCollection('cocktails');
+const cocktails = allCocktails.filter(
+    (c) => typeof c.data.rating === 'number' && c.data.rating === 5
+);
+---
+
+<Layout title="5 Star Pours">
+    <main class="max-w-4xl mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2">
+            ⭐ 5 Star Pours
+        </h1>
+
+        {cocktails.length === 0 ? (
+                <p class="italic text-zinc-600">No perfect pours... yet. Keep mixing!</p>
+        ) : (
+                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+                    {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}
+                </ul>
+        )}
+    </main>
+</Layout>

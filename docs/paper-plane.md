@@ -11,6 +11,8 @@ ingredients:
   - 3/4 oz Amaro
   - 3/4 oz Lemon Juice
 image: /pics/paper-plane.jpg
+rating: 5
+glassware: coupe
 ---
 
 Shake over ice and double strain in to glass.

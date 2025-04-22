@@ -8,6 +8,8 @@ ingredients:
   - 1 oz Fresh Espresso
   - 0.75 oz Coffee Liqueur
   - 0.25 oz Simple Syrup
+glassware: martini
+rating: 4.5
 ---
 
 Shake hard with ice.  

@@ -7,6 +7,8 @@ ingredients:
   - 2 oz White Rum
   - 1 oz Lime Juice
   - 0.75 oz Simple Syrup
+glassware: hurricane
+rating: 3.5
 ---
 
 Shake all ingredients with ice.  

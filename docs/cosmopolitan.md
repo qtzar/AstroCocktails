@@ -9,6 +9,8 @@ ingredients:
   - 1 oz Cranberry Juice
   - 0.5 oz Cointreau
   - 0.5 oz Lime Juice
+glassware: martini
+rating: 3
 ---
 
 Shake all ingredients with ice.  

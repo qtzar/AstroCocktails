@@ -1,0 +1,23 @@
+---
+import type {CollectionEntry} from "astro:content";
+import Rating from '@/components/Rating.astro';
+
+export interface Props {
+    cocktail: CollectionEntry<'cocktails'>;
+}
+
+const { cocktail } = Astro.props;
+---
+
+<li class="bg-white/90 border border-zinc-300 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+    <a href={`/cocktails/${cocktail.id}`} class="block">
+        {cocktail.data.image && (
+                 <img src={cocktail.data.image} alt={cocktail.data.title} class="w-full h-48 object-cover" />
+        )}
+        <div class="p-4">
+            <h2 class="text-xl font-semibold">{cocktail.data.title}</h2>
+            <p class="text-sm text-zinc-600 mt-1">{cocktail.data.description}</p>
+            <Rating rating={cocktail.data.rating} />
+        </div>
+    </a>
+</li>

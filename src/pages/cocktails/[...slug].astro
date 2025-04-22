@@ -1,8 +1,7 @@
 ---
-import {type CollectionEntry, getCollection, getEntry} from 'astro:content';
+import {type CollectionEntry, getCollection} from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
-import type { APIContext } from 'astro';
 import Rating from "../../components/Rating.astro";
 
 export async function getStaticPaths() {
