@@ -4,16 +4,13 @@ description: ''
 spirits:
   - Spirit 1
 ingredients:
-  - Ingrediant 1
-  - Ingredient 2
+  - Ingredient 1
 glassware: Rocks
-rating: 4
+rating: 2.5
 styles:
   - Fruity
-  - Sour
-  - Egg White
-method: Dry Shake
+method: Shake
 source:
 ---
 
-Instructions Here
+- Instructions Here
