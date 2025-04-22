@@ -14,7 +14,7 @@ ingredients:
   - '1/4oz Grenadine'
   - 'Cherry'
 glassware: 'Rocks'
-image: /docs/images/tiki-tiki-tiki-room.jpg
+image: /pics/tiki-tiki-tiki-room.jpg
 
 created: '2025-04-21'
 lastUpdate: '2025-04-21'

@@ -10,7 +10,7 @@ ingredients:
   - '1/2oz Frangelico'
   - '1.5oz Irish Whiskey'
 glassware: 'Rocks'
-image: /docs/images/celtic-twilight.png
+
 
 created: '2025-04-21'
 lastUpdate: '2025-04-21'

@@ -9,7 +9,7 @@ ingredients:
   - '1oz Maple Syrup'
   - '3-4 mint leaves'
 glassware: 'Rocks'
-image: /docs/images/maple-bourbon-smash.jpg
+image: /pics/maple-bourbon-smash.jpg
 
 created: '2025-04-21'
 lastUpdate: '2025-04-21'

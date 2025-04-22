@@ -26,8 +26,18 @@ const { Content } = await render(post);
             ← Back to index
         </a>
 
+
         <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
         <p class="italic text-zinc-600 mb-6">{post.data.description}</p>
+
+        {post.data.image && (
+                <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="w-full max-h-96 object-cover rounded-lg mb-6 shadow-md"
+                />
+        )}
+
 
         <div class="mb-6">
             <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mb-2">🧾 Ingredients</h2>
