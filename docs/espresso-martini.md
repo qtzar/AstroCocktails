@@ -11,6 +11,9 @@ ingredients:
 glassware: martini
 rating: 4.5
 method: Shaken
+styles:
+  - Bitter
+  - Coffee
 ---
 
 Shake hard with ice.  

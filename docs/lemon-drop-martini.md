@@ -15,6 +15,8 @@ notes: This is a copycat recipe of the Lemon Drop Martini from Mortons Steakhous
 styles:
   - Sweet
 method: Shaken
+rating: 5
+
 ---
 
 Put a sugar rim on martini glass.

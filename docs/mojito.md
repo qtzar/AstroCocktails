@@ -10,6 +10,10 @@ ingredients:
   - 6-8 Mint Leaves
   - Soda Water
 method: Built
+rating: 4
+styles:
+  - Minty
+  - Fizzy
 ---
 
 Muddle mint with syrup and lime in a glass.  

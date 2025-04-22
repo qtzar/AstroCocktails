@@ -11,6 +11,7 @@ ingredients:
 rating: 4.5
 styles:
   - Spirit Forward
+  - Aperitif
 method: Stirred
 ---
 

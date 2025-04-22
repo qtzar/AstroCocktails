@@ -10,10 +10,10 @@ const cocktails = defineCollection({
 			description: z.string(),
 			spirits: z.array(z.string()),
 			ingredients: z.array(z.string()),
-			notes: z.string().optional(),
-			rating: z.number().optional(),
-			styles: z.array(z.string()).optional(),
+			rating: z.number(),
+			styles: z.array(z.string()),
 			image: z.string().optional(),
+			notes: z.string().optional(),
 		})
 		.passthrough()
 });

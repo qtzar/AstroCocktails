@@ -16,6 +16,7 @@ notes: >-
 rating: 3.5
 styles:
   - Refreshing
+  - Egg White
 method: Dry Shake
 ---
 

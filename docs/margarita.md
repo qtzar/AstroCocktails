@@ -9,6 +9,9 @@ ingredients:
   - 1 oz Lime Juice
   - 0.75 oz Cointreau or Triple Sec
 method: Shaken
+rating: 4
+styles:
+  - Tart
 ---
 
 Shake all ingredients with ice.  

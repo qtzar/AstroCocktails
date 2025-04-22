@@ -11,6 +11,9 @@ ingredients:
   - Club Soda
 image: /pics/gin-daisy.jpg
 method: Shaken
+rating: 3.5
+styles:
+  - Refreshing
 ---
 
 Add the Gin, orange liqueur and lemon juice to shaker, shake over ice and dirty dump in to glass. 

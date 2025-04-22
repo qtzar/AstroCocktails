@@ -11,6 +11,10 @@ ingredients:
 glassware: 'Rocks'
 image: /pics/maple-bourbon-smash.jpg
 method: Shaken
+rating: 5
+styles:
+  - Refreshing
+  - Summer Drink
 ---
 
 ## Ingredients

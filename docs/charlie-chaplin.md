@@ -13,6 +13,8 @@ image: /pics/charlie-chaplin.jpg
 rating: 5
 glassware: coupe
 method: Shaken
+styles:
+  - Fruity
 ---
 
 Shake over ice and double strain in to glass.

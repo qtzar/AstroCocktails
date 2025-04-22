@@ -10,6 +10,9 @@ ingredients:
 glassware: hurricane
 rating: 3.5
 method: Shaken
+styles:
+  - Fruity
+  - Tropical
 ---
 
 Shake all ingredients with ice.  

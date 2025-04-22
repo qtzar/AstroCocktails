@@ -12,6 +12,9 @@ ingredients:
 glassware: martini
 rating: 3
 method: Shaken
+styles:
+  - Citrusy
+  - Tart
 ---
 
 Shake all ingredients with ice.  

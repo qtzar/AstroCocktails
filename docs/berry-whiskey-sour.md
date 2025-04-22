@@ -16,6 +16,7 @@ rating: 4
 styles:
   - Fruity
   - Sour
+  - Egg White
 method: Dry Shake
 ---
 

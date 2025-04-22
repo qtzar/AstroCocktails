@@ -1,5 +1,5 @@
 const styleIcons: Record<string, string> = {
-    'spirit-forward': '🧊',
+    'spirit forward': '🧊',
     'refreshing': '🌿',
     'tropical': '🍍',
     'dessert': '🍰',
@@ -11,6 +11,7 @@ const styleIcons: Record<string, string> = {
     'bubbly': '🥂',
     'sour': '🍋',
     'creamy': '🥛',
+    'egg white': '🥚',
 };
 
 export function getStyleIcon(style: string | undefined): string {

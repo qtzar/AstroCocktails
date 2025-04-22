@@ -10,6 +10,7 @@ ingredients:
   - (Optional) Egg White
 styles:
   - Spirit Forward
+  - Egg White
 rating: 4
 method: Dry Shake
 ---

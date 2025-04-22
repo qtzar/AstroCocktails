@@ -11,6 +11,7 @@ ingredients:
 styles:
   - Spirit Forward
 method: Stirred
+rating: 4
 ---
 
 Muddle sugar, bitters, and water in a rocks glass.  

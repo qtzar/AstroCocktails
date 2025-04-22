@@ -17,6 +17,10 @@ ingredients:
   - 0.5 oz Simple Syrup
   - Splash of Cola
 method: Shaken
+rating: 4
+styles:
+  - Spirit Forward
+  - Strong
 ---
 
 Shake everything except cola with ice.  

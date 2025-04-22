@@ -11,10 +11,10 @@ ingredients:
   - '1.5oz Irish Whiskey'
 glassware: 'Rocks'
 rating: 3
-
-created: '2025-04-21'
-lastUpdate: '2025-04-21'
 method: Stirred
+styles:
+  - Creamy
+
 ---
 
 Stir all ingredients with ice until well chilled.  

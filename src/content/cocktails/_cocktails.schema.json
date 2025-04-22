@@ -19,9 +19,6 @@
         "type": "string"
       }
     },
-    "notes": {
-      "type": "string"
-    },
     "rating": {
       "type": "number"
     },
@@ -33,13 +30,18 @@
     },
     "image": {
       "type": "string"
+    },
+    "notes": {
+      "type": "string"
     }
   },
   "required": [
     "title",
     "description",
     "spirits",
-    "ingredients"
+    "ingredients",
+    "rating",
+    "styles"
   ],
   "additionalProperties": true,
   "$schema": "http://json-schema.org/draft-07/schema#"
