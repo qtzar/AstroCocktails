@@ -28,7 +28,7 @@ const methods = Array.from(methodMap.entries())
         icon: methodIcons[name] ?? '🍹',
         count,
     }))
-    .sort((a, b) => b.count - a.count);
+      .sort((a, b) => a.name.localeCompare(b.name)); // New: sort A–Z
 ---
 
 <Layout title="By Method">
