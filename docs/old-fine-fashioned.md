@@ -12,7 +12,7 @@ styles:
 glassware: Rocks
 method: Shaken
 rating: 2.5
-source: ''
+source: Whiskey Row
 ---
 
 - Combine all ingredients in a mixing glass with ice and stir till chilled.

@@ -16,7 +16,7 @@ rating: 2.5
 styles:
   - Fruity
 method: Shaken
-source:
+source: Cocktail Courier
 ---
 
 - Add Vodka, Campari, Lemon juice and strawberry jam to a shaker.
