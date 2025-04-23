@@ -5,50 +5,49 @@ import type { APIContext } from 'astro';
 import CocktailCard from "../../components/CocktailCard.astro";
 
 export async function getStaticPaths() {
-const allCocktails = await getCollection('cocktails');
+    const allCocktails = await getCollection('cocktails');
 
     const categories = Array.from(
         new Set(
-            allCocktails
-                .flatMap(c => Array.isArray(c.data.spirits) ? c.data.spirits : c.data.spirit ? [c.data.spirit] : [])
-                .map(s => s.toLowerCase())
+            allCocktails.flatMap(c => [
+                ...(Array.isArray(c.data.spirits) ? c.data.spirits : []),
+                ...(Array.isArray(c.data.liqueurs) ? c.data.liqueurs : []),
+            ]).map(s => s.toLowerCase())
         )
     );
 
-return categories.map((category) => ({
-params: { category },
-}));
+    return categories.map((category) => ({
+        params: { category },
+    }));
 }
 
 const { params } = Astro as APIContext;
 const category = params.category;
 const allCocktails = await getCollection('cocktails');
 
-const cocktails = allCocktails.filter(c =>
-    Array.isArray(c.data.spirits)
-        ? c.data.spirits.map(s => s.toLowerCase()).includes(category)
-        : c.data.spirit?.toLowerCase() === category
-);
-
-
+const cocktails = allCocktails.filter(c => {
+    const spirits = Array.isArray(c.data.spirits) ? c.data.spirits.map(s => s.toLowerCase()) : [];
+    const liqueurs = Array.isArray(c.data.liqueurs) ? c.data.liqueurs.map(l => l.toLowerCase()) : [];
+    return spirits.includes(category) || liqueurs.includes(category);
+});
 ---
 
-<Layout title={category.charAt(0).toUpperCase() + category.slice(1)}>
+<Layout title={`${category.charAt(0).toUpperCase() + category.slice(1)} Cocktails`}>
     <main class="max-w-4xl mx-auto p-8">
-        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
-            ← Back to index
+        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
+            ← Back to Index
         </a>
-        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2">
-            🍸 {category.charAt(0).toUpperCase() + category.slice(1)} Cocktails
+
+        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
+            {category} Cocktails
         </h1>
 
         {cocktails.length === 0 ? (
-        <p class="italic text-zinc-600">No cocktails found for this category. Might be time to invent one!</p>
+                <p class="italic text-zinc-600">No cocktails found for this category.</p>
         ) : (
                 <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-                    {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}
+                    {cocktails.map((entry) => (<CocktailCard cocktail={entry} />))}
                 </ul>
-
         )}
     </main>
 </Layout>
