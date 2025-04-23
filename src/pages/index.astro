@@ -29,7 +29,7 @@ const spirits = Array.from(spiritsMap.entries())
 		icon: getSpiritIcon(name),
 		count: data.count,
 	}))
-	.sort((a, b) => b.name - a.name); // Sort descending by count
+	.sort((a, b) => a.name - b.name); // Sort descending by count
 
 
 ---
