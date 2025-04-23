@@ -24,7 +24,7 @@ const glasses = Array.from(glassMap.entries())
         icon: getGlasswareIcon(name),
         count,
     }))
-    .sort((a, b) => b.count - a.count);
+      .sort((a, b) => a.name.localeCompare(b.name)); // New: sort A–Z
 ---
 
 <Layout title="By Glassware">
