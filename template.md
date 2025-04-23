@@ -3,14 +3,16 @@ title: title
 description: ''
 spirits:
   - Spirit 1
+liqueurs:
+  - Liqueur 1
 ingredients:
   - Ingredient 1
-glassware: Rocks
-rating: 2.5
 styles:
-  - Fruity
-method: Shake
-source:
+    - Style 1
+glassware: Rocks
+method: Shaken
+rating: 2.5
+source: ''
 ---
 
 - Instructions Here

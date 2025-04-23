@@ -12,7 +12,7 @@ glassware: Martini
 rating: 3
 styles:
   - Fruity
-method: Shake
+method: Shaken
 source: Quantum Spirits
 ---
 

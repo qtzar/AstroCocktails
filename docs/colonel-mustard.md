@@ -15,7 +15,7 @@ glassware: Nick & Nora
 rating: 4
 styles:
   - Tart
-method: Shake
+method: Shaken
 source : Quantum Spirits
 ---
 

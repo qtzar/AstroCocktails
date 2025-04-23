@@ -13,7 +13,7 @@ glassware: Martini
 rating: 4
 styles:
   - Chocolatey
-method: Shake
+method: Shaken
 ---
 
 - Decorate the inside of a martini glass with some chocolate syrup.

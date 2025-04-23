@@ -16,7 +16,7 @@ rating: 2.5
 styles:
   - Fruity
   - Sour
-method: Shake
+method: Shaken
 source : Quantum Spirits
 ---
 

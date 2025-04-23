@@ -13,7 +13,7 @@ glassware: Rocks
 rating: 2.5
 styles:
   - Citrusy
-method: Shake
+method: Shaken
 source: Cocktail Courier
 ---
 

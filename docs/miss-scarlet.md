@@ -13,7 +13,7 @@ glassware: Rocks
 rating: 2.5
 styles:
   - Spicy
-method: Shake
+method: Shaken
 source : Quantum Spirits
 ---
 

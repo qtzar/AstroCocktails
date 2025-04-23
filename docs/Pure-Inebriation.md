@@ -14,7 +14,7 @@ glassware: Martini
 rating: 2.5
 styles:
   - Fruity
-method: Shake
+method: Shaken
 source: Quantum Spirits
 ---
 

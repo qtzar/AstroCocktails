@@ -16,7 +16,7 @@ glassware: Rocks
 rating: 4
 styles:
   - Spirit Forward
-method: Shake
+method: Shaken
 source: Quantum Spirits
 ---
 

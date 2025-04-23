@@ -15,7 +15,7 @@ glassware: Stemless Wineglass
 rating: 2.5
 styles:
   - Chocolatey
-method: Shake
+method: Shaken
 source: Quantum Spirits
 ---
 

@@ -15,7 +15,7 @@ glassware: Collins
 rating: 2.5
 styles:
   - Smokey
-method: Shake
+method: Shaken
 source: Cocktail Courier
 notes: Grapefruit can interfere with some medications.
 ---

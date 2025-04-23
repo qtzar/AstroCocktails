@@ -15,7 +15,7 @@ glassware: Coupe
 rating: 2.5
 styles:
   - Tropical
-method: Shake
+method: Shaken
 source: Quantum Spirits
 ---
 
