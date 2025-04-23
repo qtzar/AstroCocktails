@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import {getMethodIcon} from "../../utils/methodIcons";
+import {getStyleIcon} from "../../utils/styleIcons";
+import CategoryCard from "../../components/CategoryCard.astro";
 
 const allCocktails = await getCollection('cocktails');
 
@@ -13,19 +16,13 @@ for (const cocktail of allCocktails) {
     methodMap.set(key, (methodMap.get(key) ?? 0) + 1);
 }
 
-const methodIcons: Record<string, string> = {
-    shaken: '🥶',
-    stirred: '🧊',
-    built: '🪜',
-    swizzled: '🌪️',
-    blended: '⚡',
-};
+
 
 const methods = Array.from(methodMap.entries())
     .map(([name, count]) => ({
         name,
         displayName: name.charAt(0).toUpperCase() + name.slice(1),
-        icon: methodIcons[name] ?? '🍹',
+        icon: getMethodIcon(name) ?? '🍹',
         count,
     }))
       .sort((a, b) => a.name.localeCompare(b.name)); // New: sort A–Z
@@ -39,13 +36,7 @@ const methods = Array.from(methodMap.entries())
 
         <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
             {methods.map(({ name, displayName, icon, count }) => (
-                    <li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition text-center">
-                        <a href={`/method/${name}`} class="block">
-                            <div class="text-4xl mb-2">{icon}</div>
-                            <h2 class="text-xl font-semibold capitalize">{displayName}</h2>
-                            <p class="text-sm text-zinc-600">{count} recipe{count !== 1 ? 's' : ''}</p>
-                        </a>
-                    </li>
+                    <CategoryCard icon={icon} count={count} name={name} url={`/method/${name}`}/>
             ))}
         </ul>
     </main>

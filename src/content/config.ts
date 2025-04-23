@@ -9,6 +9,7 @@ const cocktails = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			spirits: z.array(z.string()),
+			liqueurs: z.array(z.string()).optional(),
 			ingredients: z.array(z.string()),
 			rating: z.number(),
 			glassware: z.string(),

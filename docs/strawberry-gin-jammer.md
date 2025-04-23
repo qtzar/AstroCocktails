@@ -2,6 +2,7 @@
 title: Strawberry Gin Jammer
 spirits:
   - Gin
+liqueurs:
   - Campari
 description: ''
 ingredients:

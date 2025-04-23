@@ -2,6 +2,7 @@
 title: Margarita
 spirits:
   - Tequila
+liqueurs:
   - Orange Liqueur
 description: Tart, salty, and endlessly sessionable.
 ingredients:

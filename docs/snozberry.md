@@ -3,6 +3,7 @@ title: Snozberry Tastes Like...
 description: 'Inspired By Willy Wonka'
 spirits:
   - Gin
+liqueurs:
   - Banana Liqueur
 ingredients:
   - 2 oz Saffron Infused Gin

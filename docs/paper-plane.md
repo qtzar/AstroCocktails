@@ -2,6 +2,7 @@
 title: Paper Plane
 spirits:
   - Bourbon
+liqueurs:
   - Amaro
   - Aperol
 description: ''

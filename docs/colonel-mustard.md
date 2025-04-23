@@ -4,6 +4,7 @@ description: ''
 spirits:
   - Gin
   - Brandy
+liqueurs:
   - Pear Liqueur
 ingredients:
   - 1.5 oz Gin
@@ -13,10 +14,8 @@ ingredients:
 glassware: Nick & Nora
 rating: 4
 styles:
-  - Fruity
-  - Sour
-  - Egg White
-method: Dry Shake
+  - Tart
+method: Shake
 source : Quantum Spirits
 ---
 

@@ -3,6 +3,7 @@ title: Oaxacan Rose Paloma
 description: ''
 spirits:
   - Mezcal
+liqueurs:
   - Liqueur De Rose
 ingredients:
   - 1 oz Banhez Mezcal

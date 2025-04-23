@@ -2,6 +2,7 @@
 title: Charlie Chaplin
 spirits:
   - Sloe Gin
+liqueurs:
   - Apricot Liqueur
 description: ''
 ingredients:

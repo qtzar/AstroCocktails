@@ -5,6 +5,7 @@ spirits:
   - Gin
   - Rum
   - Tequila
+liqueurs:
   - Orange Liqueur
 description: Boozy, bold and surprisingly balanced.
 ingredients:

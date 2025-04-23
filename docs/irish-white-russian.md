@@ -2,8 +2,9 @@
 title: 'Irish White Russian'
 description: ''
 spirits:
-  - 'Whiskey'
-  - 'Kahlua'
+  - Whiskey
+liqueurs:
+  - Kahlua
 ingredients:
   - 2 oz Irish Whiskey (Jameson)
   - 2 oz Kahlua

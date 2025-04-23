@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import pagefind from 'astro-pagefind';
 import relativeLinks from 'astro-relative-links';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 
 export default defineConfig({
@@ -18,5 +18,24 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: { alias: [{ find: '@', replacement: 'src' }] },
   },
+  experimental: {
+    fonts: [
+        {
+        provider: fontProviders.google(),
+        name: "Roboto",
+        cssVariable: "--font-roboto"
+      },
+      {
+        name: 'Special Elite',
+        provider: fontProviders.google(),
+        cssVariable: '--font-special-elite'
+      },
+      {
+        name: 'Cormorant Garamond',
+        provider: fontProviders.google(),
+        cssVariable: '--font-cormorant'
+      }
+    ]
+  }
 
 });

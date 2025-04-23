@@ -2,7 +2,7 @@
 title: 'Maple Bourbon Smash'
 description: 'Light and refreshing summer drink'
 spirits:
-  - 'Bourbon'
+  - Bourbon
 ingredients:
   - '2oz Bourbon'
   - '1oz Lemon Juice'

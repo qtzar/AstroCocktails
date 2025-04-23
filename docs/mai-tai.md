@@ -2,6 +2,7 @@
 title: Mai Tai
 spirits:
   - Rum
+liqueurs:
   - Orange Liqueur
 description: A tropical blend with layered citrus and almond flavours.
 ingredients:

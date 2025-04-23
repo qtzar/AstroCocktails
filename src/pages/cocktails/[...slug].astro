@@ -5,9 +5,6 @@ import {type CollectionEntry, getCollection} from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
 import Rating from "../../components/Rating.astro";
-import {getStyleIcon} from "../../utils/styleIcons";
-import {getGlasswareIcon} from "../../utils/glasswareIcons";
-import {getMethodIcon} from "../../utils/methodIcons";
 import CocktailLabels from "../../components/CocktailLabels.astro";
 
 export async function getStaticPaths() {
@@ -45,7 +42,7 @@ try {
             ← Back to index
         </a>
 
-        <h1 class="text-3xl font-bold mb-2">{cocktail.data.title}</h1>
+        <h1 class="text-3xl font-bold mb-2 font-title">{cocktail.data.title}</h1>
         <p class="italic text-zinc-600">{cocktail.data.description}</p>
         <Rating rating={cocktail.data.rating} showNumber={true} />
 

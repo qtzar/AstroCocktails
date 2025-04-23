@@ -2,6 +2,7 @@
 title: Chocolate Martini
 spirits:
   - Vodka
+liqueurs:
   - Irish Cream
   - Chocolate Liqueur
 description: ''

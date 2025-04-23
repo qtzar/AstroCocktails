@@ -22,7 +22,7 @@ const {cocktail} = Astro.props;
         />
 
         <div class="p-4">
-            <h2 class="text-xl font-semibold">{cocktail.data.title}</h2>
+            <h2 class="text-xl font-semibold font-title">{cocktail.data.title}</h2>
             <Rating rating={cocktail.data.rating}/>
             <p class="text-sm text-zinc-600 mt-1">{cocktail.data.description}</p>
         </div>

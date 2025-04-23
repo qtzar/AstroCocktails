@@ -2,6 +2,7 @@
 title: Brandy Alexander
 spirits:
   - Brandy
+liqueurs:
   - Creme De Cacao
 description: ''
 ingredients:

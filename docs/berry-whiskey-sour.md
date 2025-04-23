@@ -2,7 +2,7 @@
 title: 'Berry Whiskey Sour'
 description: 'Whiskey Sour with a lovely berry flavor'
 spirits:
-  - 'Whiskey'
+  - Whiskey
 ingredients:
   - 3 blackberries
   - 3 raspberries

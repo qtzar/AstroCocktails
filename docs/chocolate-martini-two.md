@@ -3,6 +3,7 @@ title: Classic Chocolate Martini
 description: ''
 spirits:
   - Vodka
+liqueurs:
   - Kahlua
 ingredients:
   - 2 oz Vodka

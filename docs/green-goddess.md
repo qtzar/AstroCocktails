@@ -2,6 +2,7 @@
 title: Green Goddess
 spirits:
   - Gin
+liqueurs:
   - Elderflower Liqueur
 description: ''
 ingredients:

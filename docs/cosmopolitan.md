@@ -2,6 +2,7 @@
 title: Cosmopolitan
 spirits:
   - Vodka
+liqueurs:
   - Orange Liqueur
 description: A 90s icon — tart, citrusy, and stylish.
 ingredients:

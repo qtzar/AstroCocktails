@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { getGlasswareIcon} from "../../utils/glasswareIcons";
+import CategoryCard from "../../components/CategoryCard.astro";
 
 const allCocktails = await getCollection('cocktails');
 
@@ -36,13 +37,7 @@ const glasses = Array.from(glassMap.entries())
 
             <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
                 {glasses.map(({ name, displayName, icon, count }) => (
-                        <li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition text-center">
-                            <a href={`/glassware/${name}`} class="block">
-                                <div class="text-5xl mb-2">{icon}</div>
-                                <h2 class="text-xl font-semibold capitalize">{displayName}</h2>
-                                <p class="text-sm text-zinc-600">{count} recipe{count !== 1 ? 's' : ''}</p>
-                            </a>
-                        </li>
+                        <CategoryCard icon={icon} count={count} name={name} url={`/glassware/${name}`}/>
                 ))}
             </ul>
         </section>

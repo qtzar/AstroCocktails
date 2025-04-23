@@ -2,7 +2,8 @@
 title: Negroni
 spirits:
   - Gin
-  - Vermouth
+liqueurs:
+  - Sweet Vermouth
 description: A bitter-sweet Italian aperitif classic.
 ingredients:
   - 1 oz Gin

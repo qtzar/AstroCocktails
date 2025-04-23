@@ -3,6 +3,7 @@ title: Mrs Peacock
 description: ''
 spirits:
   - Gin
+liqueurs:
   - Blackberry Liqueur
 ingredients:
   - 2 oz Gin

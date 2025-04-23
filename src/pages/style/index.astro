@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { getStyleIcon} from "../../utils/styleIcons";
+import CategoryCard from "../../components/CategoryCard.astro";
 
 const allCocktails = await getCollection('cocktails');
 
@@ -36,15 +37,7 @@ const styles = Array.from(styleMap.entries())
 
         <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
             {styles.map(({ name, displayName, count }) => (
-                    <li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition text-center">
-                        <a href={`/style/${name}`} class="block">
-                            <div class="text-4xl mb-2">
-                                {getStyleIcon(name)}
-                            </div>
-                            <h2 class="text-xl font-semibold capitalize">{displayName}</h2>
-                            <p class="text-sm text-zinc-600">{count} recipe{count !== 1 ? 's' : ''}</p>
-                        </a>
-                    </li>
+                    <CategoryCard icon={getStyleIcon(name)} count={count} name={name} url={`/style/${name}`}/>
             ))}
         </ul>
 

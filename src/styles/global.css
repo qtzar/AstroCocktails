@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme inline {
+    --font-sans: var(--font-roboto);
+    --font-title: var(--font-special-elite);
+    --font-body: var(--font-cormorant);
+}

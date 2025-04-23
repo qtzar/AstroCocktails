@@ -2,6 +2,7 @@
 title: Sunflower
 spirits:
   - Gin
+liqueurs:
   - Elderflower Liqueur
   - Triple Sec
   - Absinthe

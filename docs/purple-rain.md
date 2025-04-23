@@ -2,7 +2,7 @@
 title: 'Purple Rain'
 description: ''
 spirits:
-  - 'Gin'
+  - Gin
 ingredients:
   - 1.5 oz Pea flower infused gin
   - .5 oz lime simple syrup

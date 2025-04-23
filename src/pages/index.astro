@@ -2,25 +2,38 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { getSpiritIcon } from "../utils/spiritIcons";
+import { getLiqueurIcon} from "../utils/liqueurIcons";
+import CategoryCard from "../components/CategoryCard.astro";
 
 const allCocktails = await getCollection('cocktails');
 
 const spiritsMap = new Map<string, { count: number }>();
+const liqueurMap = new Map<string, { count: number }>();
 
 for (const drink of allCocktails) {
-	const listedSpirits = Array.isArray(drink.data.spirits)
-		? drink.data.spirits
-		: drink.data.spirit
-			? [drink.data.spirit]
-			: [];
-
-	for (const spirit of listedSpirits) {
+	for (const spirit of drink.data.spirits) {
 		const key = spirit.toLowerCase();
 		spiritsMap.set(key, {
 			count: (spiritsMap.get(key)?.count ?? 0) + 1,
 		});
 	}
+
+	for (const liqueur of drink.data.liqueurs ?? []) {
+		const key = liqueur.toLowerCase();
+		liqueurMap.set(key, {
+			count: (liqueurMap.get(key)?.count ?? 0) + 1,
+		});
+	}
+
 }
+
+const liqueurs = Array.from(liqueurMap.entries())
+	.map(([name, data]) => ({
+		name,
+		icon: getLiqueurIcon(name), // define this helper like getSpiritIcon
+		count: data.count,
+	}))
+	.sort((a, b) => a.name.localeCompare(b.name));
 
 
 const spirits = Array.from(spiritsMap.entries())
@@ -34,16 +47,12 @@ const spirits = Array.from(spiritsMap.entries())
 
 ---
 
-		<Layout title="Cocktail Index">
+		<Layout title="By Spirit">
 			<main class="bg-[url('/parchment-texture.jpg')] bg-repeat min-h-screen p-8 text-zinc-800 font-serif">
 				<section class="max-w-6xl mx-auto">
 					<h1 class="text-4xl font-bold mb-6 text-center border-b-4 border-dotted border-zinc-400 pb-2">
-						📖 Cocktails By Spirit
+						📖 Cocktails By Main Spirit
 					</h1>
-
-					<p class="mb-8 text-center italic text-zinc-600">
-						“A notebook of all things shaken, stirred, built and brilliant.”
-					</p>
 
 					{spirits.length === 0 ? (
 						<p class="text-center text-zinc-500 italic">No cocktails yet — time to get mixing!</p>
@@ -51,16 +60,30 @@ const spirits = Array.from(spiritsMap.entries())
 						<ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
 
 						{spirits.map(({ name, icon, count }) => (
-								<li class="bg-white/80 border border-zinc-300 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-									<a href={`/${name}`} class="block text-center">
-										<div class="text-5xl mb-2">{icon}</div>
-										<h2 class="text-xl font-semibold capitalize">{name}</h2>
-										<p class="text-sm text-zinc-600">{count} recipe{count > 1 ? 's' : ''}</p>
-									</a>
-								</li>
+							<CategoryCard icon={icon} count={count} name={name} url={`/${name}`}/>
 							))}
 						</ul>
 					)}
 				</section>
+
+				<section class="mt-25 max-w-6xl mx-auto">
+					<h1 class="text-4xl font-bold mb-6 text-center border-b-4 border-dotted border-zinc-400 pb-2">
+						📖 Cocktails By Liqueur
+					</h1>
+
+
+					{liqueurs.length === 0 ? (
+						<p class="text-center text-zinc-500 italic">No cocktails yet — time to get mixing!</p>
+					) : (
+						<ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+
+							{liqueurs.map(({ name, icon, count }) => (
+								<CategoryCard icon={icon} count={count} name={name} url={`/${name}`}/>
+							))}
+						</ul>
+					)}
+				</section>
+
+
 			</main>
 		</Layout>

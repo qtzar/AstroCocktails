@@ -3,6 +3,7 @@ title: Gorilla Juice
 description: ''
 spirits:
   - Vodka
+liqueurs:
   - Banana Liqueur
   - Vanilla Liqueur
 ingredients:

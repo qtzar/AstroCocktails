@@ -3,9 +3,9 @@ title: Smirking Hyena
 description: ''
 spirits:
   - Bourbon
+liqueurs:
   - Sweet Vermouth
   - Orange Liqueur
-  
 ingredients:
   - 1.75 oz Bourbon
   - 3/4 oz Sweet Vermouth

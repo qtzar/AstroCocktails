@@ -3,6 +3,7 @@ title: Four Invalids In A Bed
 description: 'Inspired By Willy Wonka'
 spirits:
   - Gin
+liqueurs:
   - Plum Liqueur
 ingredients:
   - 2 oz Hibiscus Infused Gin

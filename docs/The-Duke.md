@@ -3,6 +3,7 @@ title: The Duke
 description: ''
 spirits:
   - Cognac
+liqueurs:
   - Sweet Vermouth
   - Amaro
 ingredients:

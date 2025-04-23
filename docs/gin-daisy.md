@@ -2,6 +2,7 @@
 title: Gin Daisy
 spirits:
   - Gin
+liqueurs:
   - Orange Liqueur
 description: ''
 ingredients:

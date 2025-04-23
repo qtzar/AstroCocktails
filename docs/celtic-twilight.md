@@ -3,6 +3,7 @@ title: 'Celtic Twilight'
 description: 'Creamy dessert drink to end the night with a kick'
 spirits:
   - 'Whiskey'
+liqueurs:
   - 'Frangelico'
   - 'Irish Cream'
 ingredients:

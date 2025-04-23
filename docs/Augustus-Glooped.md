@@ -3,6 +3,7 @@ title: Augustus Glooped
 description: 'Inspired By Willy Wonka'
 spirits:
   - Rye
+liqueurs:
   - Orange Liqueur
 ingredients:
   - 2 oz Rye
