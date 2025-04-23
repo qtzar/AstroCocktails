@@ -17,6 +17,6 @@ styles:
 
 ---
 
-Stir all ingredients with ice until well chilled.  
-Strain into a rocks glass over a large cube.  
-Garnish with an orange twist.
+- Stir all ingredients with ice until well chilled.  
+- Strain into a rocks glass over a large cube.  
+- Garnish with an orange twist.
