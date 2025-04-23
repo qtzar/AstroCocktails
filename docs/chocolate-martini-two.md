@@ -11,7 +11,7 @@ ingredients:
 glassware: Martini
 rating: 4
 styles:
-  - Chocolaty
+  - Chocolatey
 method: Shake
 ---
 

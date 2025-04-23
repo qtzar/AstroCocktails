@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import type { APIContext } from 'astro';
+import CocktailCard from "../../../components/CocktailCard.astro";
+
+export async function getStaticPaths() {
+    const allCocktails = await getCollection('cocktails');
+    const uniqueSources = Array.from(
+        new Set(allCocktails.map(c => c.data.source?.toLowerCase()).filter(Boolean))
+    );
+
+    return uniqueSources.map((source) => ({
+        params: { source },
+    }));
+}
+
+const { params } = Astro as APIContext;
+const source = params.source;
+
+const allCocktails = await getCollection('cocktails');
+const cocktails = allCocktails.filter(
+    (c) => c.data.source?.toLowerCase() === source
+);
+---
+
+<Layout title={`${source.charAt(0).toUpperCase() + source.slice(1)} Cocktails`}>
+    <main class="max-w-4xl mx-auto p-8">
+        <a href="/source" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
+            ← Back to Source Index
+        </a>
+
+        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
+            {source} Cocktails
+        </h1>
+
+        {cocktails.length === 0 ? (
+                <p class="italic text-zinc-600">No cocktails found for this source.</p>
+        ) : (
+                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+                    {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}
+                </ul>
+        )}
+    </main>
+</Layout>

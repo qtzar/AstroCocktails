@@ -13,7 +13,7 @@ ingredients:
 glassware: Stemless Wineglass
 rating: 2.5
 styles:
-  - Chocolaty
+  - Chocolatey
 method: Shake
 source: Quantum Spirits
 ---

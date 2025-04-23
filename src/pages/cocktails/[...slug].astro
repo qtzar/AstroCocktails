@@ -84,26 +84,17 @@ try {
         </div>
 
         {cocktail.data.notes && (
-                <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400">
-                    <h3 class="font-semibold text-yellow-700">Notes</h3>
-                    <p class="text-sm text-yellow-800">{cocktail.data.notes}</p>
+                <div class="mt-8 p-4 bg-yellow-200 border-l-4 border-yellow-700">
+                    <h3 class="font-semibold text-yellow-700">Note:</h3>
+                    <p class="text-sm text-yellow-900">{cocktail.data.notes}</p>
                 </div>
         )}
 
-
-
-        {createdAt && (
-                <p class="text-xs text-zinc-500 mt-4 italic">
-                    Created: {createdAt.toLocaleDateString()}
-                </p>
-        )}
-
         {updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
-                <p class="text-xs text-zinc-500 italic">
+                <p class="text-xs text-zinc-500 italic float-end">
                     Last updated: {updatedAt.toLocaleDateString()}
                 </p>
         )}
-
 
     </main>
 </Layout>
