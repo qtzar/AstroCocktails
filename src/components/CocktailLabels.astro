@@ -1,46 +1,60 @@
 ---
-import type {CollectionEntry} from "astro:content";
-import {getStyleIcon} from "../utils/styleIcons";
-import {getGlasswareIcon} from "../utils/glasswareIcons";
-import {getMethodIcon} from "../utils/methodIcons";
+import type { CollectionEntry } from 'astro:content';
+import { getStyleIcon } from '../utils/styleIcons';
+import { getGlasswareIcon } from '../utils/glasswareIcons';
+import { getMethodIcon } from '../utils/methodIcons';
 
 export interface Props {
-    cocktail: CollectionEntry<'cocktails'>;
+  cocktail: CollectionEntry<'cocktails'>;
 }
 
-const {cocktail} = Astro.props;
+const { cocktail } = Astro.props;
+
+const glassware: string = cocktail.data.glassware?.toString() ?? '';
+const method: string = cocktail.data.method?.toString() ?? '';
 ---
 
 <div class="p-2">
-    {cocktail.data.styles?.length > 0 && (
-            <>
-                { cocktail.data.styles.map((style) => {
-                    const slug = style.toLowerCase();
-                    return (
-                            <a href={`/style/${slug}`} class="whitespace-nowrap inline-flex items-center gap-1 bg-zinc-700 border border-zinc-800 rounded-full px-2 py-0.5 text-xs text-zinc-200  hover:underline">
-                                <span>{getStyleIcon(style)}</span>
-                                <span class="capitalize">{style}</span>
-                            </a>
-                    );
-                })
-                }
-            </>
-    )}
-
-    {cocktail.data.method && (
-            <a href={`/method/${cocktail.data.method.toLowerCase()}`} class="whitespace-nowrap inline-flex items-center gap-1 bg-zinc-700 border border-zinc-800 rounded-full px-2 py-0.5 text-xs text-zinc-200 mt-3 hover:underline">
-                <span>{getMethodIcon(cocktail.data.method)}</span>
-                <span class="capitalize">{cocktail.data.method}</span>
-            </a>
-    )}
-
-    {cocktail.data.glassware && (
+  {
+    cocktail.data.styles?.length > 0 && (
+      <>
+        {cocktail.data.styles.map((style) => {
+          const slug = style.toLowerCase();
+          return (
             <a
-                    href={`/glassware/${cocktail.data.glassware.toLowerCase()}`}
-                    class="whitespace-nowrap inline-flex items-center gap-1 bg-zinc-700 border border-zinc-900 rounded-full px-2 py-0.5 text-xs text-zinc-200 mt-3 hover:underline"
+              href={`/style/${slug}`}
+              class="inline-flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-700 px-2 py-0.5 text-xs whitespace-nowrap text-zinc-200 hover:underline"
             >
-                <span>{getGlasswareIcon(cocktail.data.glassware)}</span>
-                <span class="capitalize">{cocktail.data.glassware}</span>
+              <span>{getStyleIcon(style)}</span>
+              <span class="capitalize">{style}</span>
             </a>
-    )}
+          );
+        })}
+      </>
+    )
+  }
+
+  {
+    method && (
+      <a
+        href={`/method/${method.toLowerCase()}`}
+        class="mt-3 inline-flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-700 px-2 py-0.5 text-xs whitespace-nowrap text-zinc-200 hover:underline"
+      >
+        <span>{getMethodIcon(method)}</span>
+        <span class="capitalize">{method}</span>
+      </a>
+    )
+  }
+
+  {
+    glassware && (
+      <a
+        href={`/glassware/${glassware.toLowerCase()}`}
+        class="mt-3 inline-flex items-center gap-1 rounded-full border border-zinc-900 bg-zinc-700 px-2 py-0.5 text-xs whitespace-nowrap text-zinc-200 hover:underline"
+      >
+        <span>{getGlasswareIcon(glassware)}</span>
+        <span class="capitalize">{glassware}</span>
+      </a>
+    )
+  }
 </div>

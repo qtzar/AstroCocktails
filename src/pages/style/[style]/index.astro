@@ -1,24 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import Rating from '@/components/Rating.astro';
 import type { APIContext } from 'astro';
-import CocktailCard from "../../../components/CocktailCard.astro";
+import CocktailCard from '../../../components/CocktailCard.astro';
 
 export async function getStaticPaths() {
-    const allCocktails = await getCollection('cocktails');
+  const allCocktails = await getCollection('cocktails');
 
-    const uniqueStyles = new Set<string>();
+  const uniqueStyles = new Set<string>();
 
-    for (const cocktail of allCocktails) {
-        for (const style of cocktail.data.styles ?? []) {
-            uniqueStyles.add(style.toLowerCase());
-        }
+  for (const cocktail of allCocktails) {
+    for (const style of cocktail.data.styles ?? []) {
+      uniqueStyles.add(style.toLowerCase());
     }
+  }
 
-    return Array.from(uniqueStyles).map((style) => ({
-        params: { style },
-    }));
+  return Array.from(uniqueStyles).map((style) => ({
+    params: { style },
+  }));
 }
 
 const { params } = Astro as APIContext;
@@ -27,28 +26,28 @@ const style = params.style;
 const allCocktails = await getCollection('cocktails');
 
 const cocktails = allCocktails.filter(
-    (c) =>
-        Array.isArray(c.data.styles) &&
-        c.data.styles.map((s) => s.toLowerCase()).includes(style)
+  (c) => Array.isArray(c.data.styles) && c.data.styles.map((s) => s.toLowerCase()).includes(style!),
 );
 ---
 
-<Layout title={`${style.charAt(0).toUpperCase() + style.slice(1)} Cocktails`}>
-    <main class="max-w-4xl mx-auto p-8">
-        <a href="/style" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
-            ← Back to Style Index
-        </a>
+<Layout title={`${style!.charAt(0).toUpperCase() + style!.slice(1)} Cocktails`}>
+  <main class="mx-auto max-w-4xl p-8">
+    <a href="/style" class="mb-6 inline-block text-sm text-zinc-600 hover:underline"> ← Back to Style Index </a>
 
-        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
-            {style} Cocktails
-        </h1>
+    <h1 class="mb-6 border-b border-dotted border-zinc-400 pb-2 text-3xl font-bold capitalize">
+      {style} Cocktails
+    </h1>
 
-        {cocktails.length === 0 ? (
-                <p class="italic text-zinc-600">No cocktails found for this style.</p>
-        ) : (
-                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-                    {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}
-                </ul>
-        )}
-    </main>
+    {
+      cocktails.length === 0 ? (
+        <p class="text-zinc-600 italic">No cocktails found for this style.</p>
+      ) : (
+        <ul class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+          {cocktails.map((entry) => (
+            <CocktailCard cocktail={entry} />
+          ))}
+        </ul>
+      )
+    }
+  </main>
 </Layout>

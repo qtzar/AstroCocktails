@@ -2,52 +2,56 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import type { APIContext } from 'astro';
-import CocktailCard from "../../components/CocktailCard.astro";
+import CocktailCard from '../../components/CocktailCard.astro';
 
 export async function getStaticPaths() {
-    const allCocktails = await getCollection('cocktails');
+  const allCocktails = await getCollection('cocktails');
 
-    const categories = Array.from(
-        new Set(
-            allCocktails.flatMap(c => [
-                ...(Array.isArray(c.data.spirits) ? c.data.spirits : []),
-                ...(Array.isArray(c.data.liqueurs) ? c.data.liqueurs : []),
-            ]).map(s => s.toLowerCase())
-        )
-    );
+  const categories = Array.from(
+    new Set(
+      allCocktails
+        .flatMap((c) => [
+          ...(Array.isArray(c.data.spirits) ? c.data.spirits : []),
+          ...(Array.isArray(c.data.liqueurs) ? c.data.liqueurs : []),
+        ])
+        .map((s) => s.toLowerCase()),
+    ),
+  );
 
-    return categories.map((category) => ({
-        params: { category },
-    }));
+  return categories.map((category) => ({
+    params: { category },
+  }));
 }
 
 const { params } = Astro as APIContext;
 const category = params.category;
 const allCocktails = await getCollection('cocktails');
 
-const cocktails = allCocktails.filter(c => {
-    const spirits = Array.isArray(c.data.spirits) ? c.data.spirits.map(s => s.toLowerCase()) : [];
-    const liqueurs = Array.isArray(c.data.liqueurs) ? c.data.liqueurs.map(l => l.toLowerCase()) : [];
-    return spirits.includes(category) || liqueurs.includes(category);
+const cocktails = allCocktails.filter((c) => {
+  const spirits = Array.isArray(c.data.spirits) ? c.data.spirits.map((s) => s.toLowerCase()) : [];
+  const liqueurs = Array.isArray(c.data.liqueurs) ? c.data.liqueurs.map((l) => l.toLowerCase()) : [];
+  return spirits.includes(category!) || liqueurs.includes(category!);
 });
 ---
 
-<Layout title={`${category.charAt(0).toUpperCase() + category.slice(1)} Cocktails`}>
-    <main class="max-w-4xl mx-auto p-8">
-        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
-            ← Back to Index
-        </a>
+<Layout title={`${category!.charAt(0).toUpperCase() + category!.slice(1)} Cocktails`}>
+  <main class="mx-auto max-w-4xl p-8">
+    <a href="/" class="mb-6 inline-block text-sm text-zinc-600 hover:underline"> ← Back to Index </a>
 
-        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
-            {category} Cocktails
-        </h1>
+    <h1 class="mb-6 border-b border-dotted border-zinc-400 pb-2 text-3xl font-bold capitalize">
+      {category} Cocktails
+    </h1>
 
-        {cocktails.length === 0 ? (
-                <p class="italic text-zinc-600">No cocktails found for this category.</p>
-        ) : (
-                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-                    {cocktails.map((entry) => (<CocktailCard cocktail={entry} />))}
-                </ul>
-        )}
-    </main>
+    {
+      cocktails.length === 0 ? (
+        <p class="text-zinc-600 italic">No cocktails found for this category.</p>
+      ) : (
+        <ul class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+          {cocktails.map((entry) => (
+            <CocktailCard cocktail={entry} />
+          ))}
+        </ul>
+      )
+    }
+  </main>
 </Layout>

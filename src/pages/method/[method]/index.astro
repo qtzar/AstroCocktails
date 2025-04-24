@@ -1,46 +1,43 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import Rating from '@/components/Rating.astro';
 import type { APIContext } from 'astro';
-import CocktailCard from "../../../components/CocktailCard.astro";
+import CocktailCard from '../../../components/CocktailCard.astro';
 
 export async function getStaticPaths() {
-    const allCocktails = await getCollection('cocktails');
-    const uniqueMethods = Array.from(
-        new Set(allCocktails.map(c => c.data.method?.toLowerCase()).filter(Boolean))
-    );
+  const allCocktails = await getCollection('cocktails');
+  const uniqueMethods = Array.from(new Set(allCocktails.map((c) => c.data.method?.toLowerCase()).filter(Boolean)));
 
-    return uniqueMethods.map((method) => ({
-        params: { method },
-    }));
+  return uniqueMethods.map((method) => ({
+    params: { method },
+  }));
 }
 
 const { params } = Astro as APIContext;
 const method = params.method;
 
 const allCocktails = await getCollection('cocktails');
-const cocktails = allCocktails.filter(
-    (c) => c.data.method?.toLowerCase() === method
-);
+const cocktails = allCocktails.filter((c) => c.data.method?.toLowerCase() === method);
 ---
 
-<Layout title={`${method.charAt(0).toUpperCase() + method.slice(1)} Cocktails`}>
-    <main class="max-w-4xl mx-auto p-8">
-        <a href="/method" class="text-sm text-zinc-600 hover:underline inline-block mb-6">
-            ← Back to Method Index
-        </a>
+<Layout title={`${method!.charAt(0).toUpperCase() + method!.slice(1)} Cocktails`}>
+  <main class="mx-auto max-w-4xl p-8">
+    <a href="/method" class="mb-6 inline-block text-sm text-zinc-600 hover:underline"> ← Back to Method Index </a>
 
-        <h1 class="text-3xl font-bold mb-6 border-b border-dotted border-zinc-400 pb-2 capitalize">
-            {method} Cocktails
-        </h1>
+    <h1 class="mb-6 border-b border-dotted border-zinc-400 pb-2 text-3xl font-bold capitalize">
+      {method} Cocktails
+    </h1>
 
-        {cocktails.length === 0 ? (
-                <p class="italic text-zinc-600">No cocktails found for this method.</p>
-        ) : (
-                <ul class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-                    {cocktails.map((entry) => <CocktailCard cocktail={entry} />)}
-                </ul>
-        )}
-    </main>
+    {
+      cocktails.length === 0 ? (
+        <p class="text-zinc-600 italic">No cocktails found for this method.</p>
+      ) : (
+        <ul class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+          {cocktails.map((entry) => (
+            <CocktailCard cocktail={entry} />
+          ))}
+        </ul>
+      )
+    }
+  </main>
 </Layout>

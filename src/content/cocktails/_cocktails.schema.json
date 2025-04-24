@@ -31,6 +31,9 @@
     "glassware": {
       "type": "string"
     },
+    "method": {
+      "type": "string"
+    },
     "styles": {
       "type": "array",
       "items": {
@@ -54,6 +57,7 @@
     "ingredients",
     "rating",
     "glassware",
+    "method",
     "styles"
   ],
   "additionalProperties": true,

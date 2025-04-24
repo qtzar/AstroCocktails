@@ -1,22 +1,20 @@
 ---
 import fs from 'node:fs';
 import path from 'node:path';
-import {type CollectionEntry, getCollection} from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { render } from 'astro:content';
-import Rating from "../../components/Rating.astro";
-import CocktailLabels from "../../components/CocktailLabels.astro";
+import Rating from '../../components/Rating.astro';
+import CocktailLabels from '../../components/CocktailLabels.astro';
 
 export async function getStaticPaths() {
-    const allCocktails = await getCollection('cocktails');
+  const allCocktails = await getCollection('cocktails');
 
-    return allCocktails.map((post) => ({
-        params: { slug: post.id },
-        props: post,
-    }));
+  return allCocktails.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
 }
-
-type Props = CollectionEntry<'cocktails'>;
 
 const cocktail = Astro.props;
 const { Content } = await render(cocktail);
@@ -26,72 +24,74 @@ let createdAt: Date | null = null;
 let updatedAt: Date | null = null;
 
 try {
-    const stats = fs.statSync(filePath);
-    createdAt = stats.birthtime;
-    updatedAt = stats.mtime;
+  const stats = fs.statSync(filePath);
+  createdAt = stats.birthtime;
+  updatedAt = stats.mtime;
 } catch (e) {
-    console.warn(`Unable to read file info for: ${cocktail.id}`, e);
+  console.warn(`Unable to read file info for: ${cocktail.id}`, e);
 }
-
-
 ---
 
 <Layout title={cocktail.data.title}>
-    <main class="max-w-5xl mx-auto p-6 bg-white/90 rounded-lg shadow mt-8 border border-zinc-300">
-        <a href="/" class="text-sm text-zinc-600 hover:underline inline-block mb-4">
-            ← Back to index
-        </a>
+  <main class="mx-auto mt-8 max-w-5xl rounded-lg border border-zinc-300 bg-white/90 p-6 shadow">
+    <a href="/" class="mb-4 inline-block text-sm text-zinc-600 hover:underline"> ← Back to index </a>
 
-        <h1 class="text-3xl font-bold mb-2 font-title">{cocktail.data.title}</h1>
-        <p class="italic text-zinc-600">{cocktail.data.description}</p>
-        <Rating rating={cocktail.data.rating} showNumber={true} />
+    <h1 class="font-title mb-2 text-3xl font-bold">{cocktail.data.title}</h1>
+    <p class="text-zinc-600 italic">{cocktail.data.description}</p>
+    <Rating rating={cocktail.data.rating} showNumber={true} />
 
+    {
+      cocktail.data.image && (
+        <img
+          src={cocktail.data.image}
+          alt={cocktail.data.title}
+          class="mt-6 max-h-100 w-full rounded-lg object-contain shadow-md"
+        />
+      )
+    }
 
-        {cocktail.data.image && (
-                <img
-                        src={cocktail.data.image}
-                        alt={cocktail.data.title}
-                        class="w-full max-h-100 object-contain rounded-lg mt-6 shadow-md"
-                />
-        )}
+    <CocktailLabels cocktail={cocktail} />
 
-        <CocktailLabels cocktail={cocktail} />
+    {
+      cocktail.data.source && (
+        <p class="mb-4 text-sm text-zinc-600 italic">
+          Source:{' '}
+          {cocktail.data.source.startsWith('http') ? (
+            <a href={cocktail.data.source} target="_blank" rel="noopener noreferrer" class="underline">
+              {cocktail.data.source}
+            </a>
+          ) : (
+            cocktail.data.source
+          )}
+        </p>
+      )
+    }
 
-        {cocktail.data.source && (
-                <p class="text-sm italic text-zinc-600 mb-4">
-                    Source: {
-                    cocktail.data.source.startsWith('http')
-                        ? <a href={cocktail.data.source} target="_blank" rel="noopener noreferrer" class="underline">{data.source}</a>
-                        : cocktail.data.source
-                }
-                </p>
-        )}
+    <div class="mb-6">
+      <h2 class="mt-6 mb-2 border-b border-dotted border-zinc-400 pb-1 text-xl font-semibold">🧾 Ingredients</h2>
+      <ul class="list-disc space-y-1 pl-6 text-zinc-700">
+        {cocktail.data.ingredients?.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
 
+    <div class="mb-6">
+      <h2 class="mb-2 border-b border-dotted border-zinc-400 pb-1 text-xl font-semibold">🔧 Instructions</h2>
+      <Content />
+    </div>
 
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mt-6 mb-2">🧾 Ingredients</h2>
-            <ul class="list-disc pl-6 space-y-1 text-zinc-700">
-                {cocktail.data.ingredients?.map((item) => <li>{item}</li>)}
-            </ul>
+    {
+      cocktail.data.notes && (
+        <div class="mt-8 border-l-4 border-yellow-700 bg-yellow-200 p-4">
+          <h3 class="font-semibold text-yellow-700">Note:</h3>
+          <p class="text-sm text-yellow-900">{cocktail.data.notes}</p>
         </div>
+      )
+    }
 
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold border-b border-dotted border-zinc-400 pb-1 mb-2">🔧 Instructions</h2>
-            <Content />
-        </div>
-
-        {cocktail.data.notes && (
-                <div class="mt-8 p-4 bg-yellow-200 border-l-4 border-yellow-700">
-                    <h3 class="font-semibold text-yellow-700">Note:</h3>
-                    <p class="text-sm text-yellow-900">{cocktail.data.notes}</p>
-                </div>
-        )}
-
-        {updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
-                <p class="text-xs text-zinc-500 italic float-end">
-                    Last updated: {updatedAt.toLocaleDateString()}
-                </p>
-        )}
-
-    </main>
+    {
+      updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
+        <p class="float-end text-xs text-zinc-500 italic">Last updated: {updatedAt.toLocaleDateString()}</p>
+      )
+    }
+  </main>
 </Layout>
