@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "astro-cocktails",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,9 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.14.0",
-    "@astrojs/mdx": "^4.2.4",
-    "astro": "^5.7.4",
+    "@astrojs/markdoc": "^0.14.1",
+    "@astrojs/mdx": "^4.2.5",
+    "astro": "^5.7.5",
     "astro-icon": "^1.1.5",
     "astro-pagefind": "^1.8.3",
     "astro-relative-links": "^0.4.2",
@@ -39,7 +39,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "stylelint": "^16.18.0",
+    "stylelint": "^16.19.0",
     "stylelint-config-astro": "^1.0.4",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-tailwindcss": "^1.0.0",
