@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro check && astro build && astro preview",
+    "astro": "astro",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.14.1",
