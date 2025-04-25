@@ -23,17 +23,20 @@ export default defineConfig({
         {
         provider: fontProviders.google(),
         name: "Roboto",
-        cssVariable: "--font-roboto"
+        cssVariable: "--font-roboto",
+        subsets: ['latin', 'latin-ext'],
       },
       {
         name: 'Special Elite',
         provider: fontProviders.google(),
-        cssVariable: '--font-special-elite'
+        cssVariable: '--font-special-elite',
+        subsets: ['latin', 'latin-ext'],
       },
       {
         name: 'Cormorant Garamond',
         provider: fontProviders.google(),
-        cssVariable: '--font-cormorant'
+        cssVariable: '--font-cormorant',
+        subsets: ['latin', 'latin-ext'],
       }
     ]
   }
