@@ -18,6 +18,7 @@ styles:
   - Refreshing
   - Egg White
 method: Dry Shake
+source: Quantum Spirits
 ---
 
 Dry shake for 45 seconds. Wet shake for 15.
