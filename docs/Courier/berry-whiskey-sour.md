@@ -24,7 +24,7 @@ Muddle berries and lemon juice.
 
 Add bourbon and egg whites
 
-Dry shake all ingredients, then shake again with ice.  
+Dry shake all ingredients, then shake again with ice.
 
 Strain into a rocks glass with fresh ice.
 

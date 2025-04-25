@@ -10,8 +10,8 @@ ingredients:
   - 1/2 oz Coffee Liqueur
   - 2 Dashes of Bohemian Bitters
 styles:
-    - Dark
-    - Spicy
+  - Dark
+  - Spicy
 glassware: Rocks
 method: Stirred
 rating: 2.5

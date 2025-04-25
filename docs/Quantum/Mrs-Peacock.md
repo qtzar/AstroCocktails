@@ -17,7 +17,7 @@ styles:
   - Fruity
   - Sour
 method: Shaken
-source : Quantum Spirits
+source: Quantum Spirits
 ---
 
 - Shake With Ice

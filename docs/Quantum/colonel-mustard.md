@@ -16,15 +16,15 @@ rating: 4
 styles:
   - Tart
 method: Shaken
-source : Quantum Spirits
+source: Quantum Spirits
 ---
 
 - Shake With Ice
 - Fine strain in to a Nick & Nora glass
 - Garnish with a mint sprig
 
+### _Mustard Mix_ :
 
-### *Mustard Mix* :
 - 1 Tbsp Dijon Mustard
 - 2 Tbsp Honey
 - 6 Tbsp Lemon Juice

@@ -8,8 +8,8 @@ ingredients:
   - 1/2 oz Oleo Saccharum Syrup
   - Soda Water
 styles:
-    - Warm
-    - Woodsy
+  - Warm
+  - Woodsy
 glassware: Highball
 method: Stirred
 rating: 2.5

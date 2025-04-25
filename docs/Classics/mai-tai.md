@@ -17,6 +17,7 @@ styles:
   - Tropical
 glassware: Hurricane
 ---
-- Shake all ingredients with ice. 
-- Strain into a rocks glass filled with crushed ice. 
+
+- Shake all ingredients with ice.
+- Strain into a rocks glass filled with crushed ice.
 - Garnish with mint and lime.

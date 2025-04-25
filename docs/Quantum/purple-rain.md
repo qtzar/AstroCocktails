@@ -20,8 +20,8 @@ styles:
 method: Dry Shake
 ---
 
-Dry shake for 45 seconds. Wet shake for 15. 
+Dry shake for 45 seconds. Wet shake for 15.
 
-Double/fine strain in to a 5oz coup. 
+Double/fine strain in to a 5oz coup.
 
 Garnish with star anise.

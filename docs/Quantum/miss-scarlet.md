@@ -14,7 +14,7 @@ rating: 2.5
 styles:
   - Spicy
 method: Shaken
-source : Quantum Spirits
+source: Quantum Spirits
 ---
 
 - Shake with ice.

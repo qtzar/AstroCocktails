@@ -9,8 +9,8 @@ ingredients:
   - 1/2 oz Lemon Juice
   - 2 Dashes Smoken Cinnamon Bitters
 styles:
-    - Light
-    - Soft
+  - Light
+  - Soft
 glassware: Rocks
 method: Shaken
 rating: 2.5
