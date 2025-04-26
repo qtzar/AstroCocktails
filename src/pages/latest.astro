@@ -1,0 +1,54 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import path from 'node:path';
+import fs from 'node:fs';
+import { getCollection } from 'astro:content';
+import CocktailCard from '../components/CocktailCard.astro';
+
+const cocktails = await getCollection('cocktails');
+
+const data = cocktails.map((entry) => {
+  const filePath = path.resolve('docs/', `${entry.id}.md`);
+  let createdAt = new Date();
+  let updatedAt = new Date();
+  try {
+    const stats = fs.statSync(filePath);
+    createdAt = stats.birthtime ?? new Date();
+    updatedAt = stats.mtime ?? new Date();
+  } catch (e) {
+    console.warn(`Could not find file for ${entry.id}`, e);
+  }
+
+  return {
+    id: entry.id,
+    cocktail: entry,
+    createdAt,
+    updatedAt,
+  };
+});
+
+const latestCocktails = data
+  .filter((c) => c.updatedAt)
+  .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())
+  .slice(0, 9);
+---
+
+<Layout title="Latest Creations">
+  <main class="mx-auto max-w-5xl p-8">
+    <h1 class="mb-6 border-b-4 border-dotted border-zinc-400 pb-2 text-center text-4xl font-bold">
+      ✨ Latest Cocktails
+    </h1>
+
+    {
+      latestCocktails.length === 0 ? (
+        <p class="text-zinc-600 italic">No recent additions yet!</p>
+      ) : (
+        <ul class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+          {latestCocktails.map((entry) => (
+            <CocktailCard cocktail={entry.cocktail} />
+          ))}
+        </ul>
+      )
+    }
+  </main>
+</Layout>

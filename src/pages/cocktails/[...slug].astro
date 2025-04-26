@@ -20,12 +20,10 @@ const cocktail = Astro.props;
 const { Content } = await render(cocktail);
 
 const filePath = path.resolve(`docs/${cocktail.id}.md`);
-let createdAt: Date | null = null;
 let updatedAt: Date | null = null;
 
 try {
   const stats = fs.statSync(filePath);
-  createdAt = stats.birthtime;
   updatedAt = stats.mtime;
 } catch (e) {
   console.warn(`Unable to read file info for: ${cocktail.id}`, e);
@@ -96,10 +94,6 @@ try {
       />
     </div>
 
-    {
-      updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
-        <p class="float-end text-xs text-zinc-500 italic">Last updated: {updatedAt.toLocaleDateString()}</p>
-      )
-    }
+    {updatedAt && <p class="float-end text-xs text-zinc-500 italic">Updated: {updatedAt.toLocaleDateString()}</p>}
   </main>
 </Layout>
