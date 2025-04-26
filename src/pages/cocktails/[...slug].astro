@@ -88,6 +88,14 @@ try {
       )
     }
 
+    <div class="mt-4 flex justify-center">
+      <img
+        src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent('https://qtzar.github.io/AstroCocktails/cocktails/' + cocktail.id)}`}
+        alt={`QR Code for ${cocktail.data.title}`}
+        class="h-30 w-30 rounded-md shadow transition hover:scale-105"
+      />
+    </div>
+
     {
       updatedAt && createdAt?.getTime() !== updatedAt.getTime() && (
         <p class="float-end text-xs text-zinc-500 italic">Last updated: {updatedAt.toLocaleDateString()}</p>
