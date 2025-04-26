@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Choosing a Random Cocktail...">
+  <main class="flex min-h-screen items-center justify-center">
+    <p class="text-xl text-zinc-600 italic">Mixing up something random for you...</p>
+
+    <script type="module">
+      async function pickRandomCocktail() {
+        try {
+          const res = await fetch('/cocktails.json');
+          const cocktails = await res.json();
+          if (!Array.isArray(cocktails) || cocktails.length === 0) {
+            console.error('No cocktails found.');
+            return;
+          }
+
+          const random = cocktails[Math.floor(Math.random() * cocktails.length)];
+          if (random?.id) {
+            window.location.href = `/cocktails/${random.id}`;
+          } else {
+            console.error('Random cocktail missing slug:', random);
+          }
+        } catch (err) {
+          console.error('Error fetching cocktails:', err);
+        }
+      }
+
+      pickRandomCocktail();
+    </script>
+  </main>
+</Layout>
