@@ -19,6 +19,7 @@ glassware: Nick & Nora
 method: Stirred
 rating: 5
 source: Quantum Spirits
+image: pics/the-proper-sazerac.jpeg
 ---
 
 - Mist glass with Absinthe
